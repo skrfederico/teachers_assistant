@@ -22,7 +22,7 @@ export default function AllGroups() {
         {groups.length > 1 && (
           <ul>
             {groups
-              .filter((i) => !i.completed)
+              // .filter((i) => !i.completed)
               .map((group) => {
                 return (
                   <div key={group._id} className="single">
