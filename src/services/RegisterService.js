@@ -18,27 +18,48 @@ class RegisterService {
 
     return data
   }
-  async createRegister(register) {
-    // return { _id: String(Math.random() * 124), body: group }
-    try {
-      const { data } = await this.instance.post('/', register)
-
-      // {
-      //   body: register
-      // })
-      // return data;
-      //   // body: { body: group },
-      //   body: group,
-      //   method: 'POST'
-      // })
-      // const data = createdNote.json()
-      // const { data } = await this.instance.post('/', { body: group })
-      return data
-    } catch (error) {
-      console.error(error.response.data)
-      throw error
-    }
+  // restructuring previous createRegister
+  // async createRegister(
+  //   register,
+  //   student,
+  //   group,
+  //   attendance,
+  //   hwCompletion,
+  //   participation,
+  //   date
+  // ) {
+  //   console.log(register)
+  //   // return { _id: String(Math.random() * 124), body: group }
+  //   try {
+  //     const { data } = await this.instance.post('/', {
+  //       register: register,
+  //       student: student,
+  //       group: group,
+  //       attendance: attendance,
+  //       hwCompletion: hwCompletion,
+  //       participation: participation,
+  //       date: date
+  //     })
+  //     return data
+  //   } catch (error) {
+  //     console.error(error.response.data)
+  //     throw error
+  //   }
+  // }
+  //
+  /* lo que tiene q tener register { 
+    attendance:boolean, 
+    homework:bollean, 
+    participation:string, 
+    student:Student, 
+    group:Group 
   }
+  */
+  async createRegister(register) {
+    const { data } = await this.instance.post('/', register)
+    return data
+  }
+
   async deleteRegister(id) {
     const response = await this.instance.delete(`/${id}`)
     console.log('Deleted Register:', response.data)
@@ -47,13 +68,34 @@ class RegisterService {
     console.error(error)
   }
 
-  async updateRegister(id, register) {
+  async updateRegister(
+    id,
+    student,
+    group,
+    attendance,
+    hwCompletion,
+    participation,
+    date
+  ) {
     const { data } = await this.instance.put(`/${id}`, {
-      body: register
+      student: student,
+      group: group,
+      attendance: attendance,
+      hwCompletion: hwCompletion,
+      participation: participation,
+      date: date
     })
     return data
   }
 }
+
+//simpler update
+// async updateRegister(id, register) {
+//   const { data } = await this.instance.put(`/${id}`, {
+//     body: register
+//   })
+//   return data
+// }
 
 //just one single service
 const registerService = new RegisterService()
