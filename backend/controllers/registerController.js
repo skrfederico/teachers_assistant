@@ -20,7 +20,9 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     // const { body } = req
-    const createdRegister = await Register.create({ ...body })
+    // const createdRegister = await Register.create({ ...body })
+    const createdRegister = await Register.create(req.body)
+    console.log(req.body)
     return res.json(createdRegister)
   } catch (error) {
     res.status(500).json({ error })

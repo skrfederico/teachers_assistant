@@ -189,28 +189,29 @@ function useHook() {
 
   // // Registers 2
   async function createRegister(
-    register,
-    student,
-    group,
-    attendance,
-    hwCompletion,
-    participation,
-    date
+    registerData
+    // register,
+    // student,
+    // group,
+    // attendance,
+    // hwCompletion,
+    // participation,
+    // date
   ) {
     // studentService.createRegister(register)
-    console.log({ register })
-    console.log(register)
-    console.log(group)
+    console.log({ registerData })
+    console.log(registerData)
+    // console.log(group)
     try {
       // const data = await response.json()
       const freshRegister = await studentService.createRegister(
-        register,
-        student,
-        group,
-        attendance,
-        hwCompletion,
-        participation,
-        date
+        registerData
+        // student,
+        // group,
+        // attendance,
+        // hwCompletion,
+        // participation,
+        // date
       )
       setRegisters((oldRegisters) => [...oldRegisters, freshRegister])
     } catch (error) {

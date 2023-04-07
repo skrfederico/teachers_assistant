@@ -13,7 +13,9 @@ export const SelectInput = ({ label, options, onChange, name }) => {
           -- Choose a rating --
         </option>
         {options.map((option) => (
-          <option value={option.value}>{option.textOutput}</option>
+          <option key={option.value} value={option.value}>
+            {option.textOutput}
+          </option>
         ))}
       </select>
     </label>

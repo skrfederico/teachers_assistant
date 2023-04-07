@@ -182,7 +182,6 @@ export default function StudentPage() {
               <strong>Email:</strong> {activeStudent.email} <br />
               <strong>Telephone:</strong> {activeStudent.telephone} <br />
               <strong>Address:</strong> {activeStudent.address} <br />
-              <strong>Group:</strong> {activeStudent.group} <br />
             </p>
           )}
         </>
