@@ -3,16 +3,17 @@ import RegisterService from '../../services/RegisterService'
 import { SelectInput } from './SelectInput'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import registerService from '../../services/RegisterService'
 
 export const RateStudentForm = ({ student, onClick }) => {
   const { id } = useParams()
-
+  const defaultD = 'D'
   const [rateForm, setRateForm] = useState({
     student: student._id,
     group: id,
     attendance: '',
     hwCompletion: '',
-    participation: ''
+    participation: defaultD
   })
 
   // son equivalentes
@@ -27,7 +28,7 @@ export const RateStudentForm = ({ student, onClick }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault()
     // validacion de datos (selector no vacio...)
-    const registerService = new RegisterService()
+    // const registerService = new RegisterService()
 
     console.log(rateForm)
     registerService
@@ -108,6 +109,7 @@ export const RateStudentForm = ({ student, onClick }) => {
           <SelectInput
             label="participation"
             name="participation"
+            defaultD={defaultD}
             onChange={handleOnChange}
             options={[
               { value: 'A', textOutput: 'Excellent' },

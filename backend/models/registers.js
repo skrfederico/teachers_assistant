@@ -6,7 +6,11 @@ const registerSchema = new mongoose.Schema({
   group: { type: mongoose.Schema.Types.ObjectId, ref: 'Group' },
   attendance: { type: Boolean },
   hwCompletion: { type: Boolean },
-  participation: { type: String, enum: ['A', 'B', 'C', 'D', 'E', 'F'] },
+  participation: {
+    type: String,
+    enum: ['A', 'B', 'C', 'D', 'E', 'F'],
+    default: 'D'
+  },
   date: { type: Date, default: new Date() }
 })
 // console.log(studentSchema.createdAt)
