@@ -197,6 +197,7 @@ function useHook() {
       const results3 = await registerService.getAllRegisters()
       setRegisters(results3)
       console.log(results3)
+      console.log('The registers are:', results3)
     } catch (error) {
       console.error(error)
     }
