@@ -14,7 +14,7 @@ class RegisterService {
         student: registerData.student,
         group: registerData.group,
         attendance: registerData.attendance,
-        homework: registerData.hwCompletion,
+        hwCompletion: registerData.hwCompletion,
         participation: registerData.participation
       })
       // const response = await this.instance.post('/', registerData)

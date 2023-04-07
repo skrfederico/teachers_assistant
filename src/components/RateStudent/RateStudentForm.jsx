@@ -34,8 +34,11 @@ export const RateStudentForm = ({ student, onClick }) => {
       .createRegister({
         student: rateForm.student,
         group: id,
+        // FIX THIS:
+        // attendance: rateForm.attendance === 'on' ? 'on' : 'off',
+        // hwCompletion: rateForm.hwCompletion === 'on' ? 'on' : 'off',
         attendance: rateForm.attendance === 'on',
-        homework: rateForm.hwCompletion === 'on',
+        hwCompletion: rateForm.hwCompletion === 'on',
         participation: rateForm.participation
       })
       .then((register) => {

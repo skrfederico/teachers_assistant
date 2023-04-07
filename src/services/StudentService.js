@@ -24,10 +24,6 @@ class StudentService {
     console.log(student)
     try {
       const { data } = await this.instance.post('/', student)
-      // {
-      //   body: student,
-      //   group: groupId
-      // })
       return data
     } catch (error) {
       console.error(error.response.data)
@@ -40,22 +36,9 @@ class StudentService {
     return await this.instance.delete(`/${id}`)
   }
 
-  async updateStudent(
-    id,
-    student,
-    // attendance,
-    // hwCompletion,
-    // participation,
-    email,
-    telephone,
-    address,
-    groupId
-  ) {
+  async updateStudent(id, student, email, telephone, address, groupId) {
     const { data } = await this.instance.put(`/${id}`, {
       body: student,
-      // attendance: attendance,
-      // hwCompletion: hwCompletion,
-      // participation: participation,
       email: email,
       telephone: telephone,
       address: address,

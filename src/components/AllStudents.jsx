@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useController } from '../Controller'
 import { useParams } from 'react-router-dom'
+// importing the functions for average
+// import { logGroupStats } from '.studentsCalculations'
 
 export default function AllStudents() {
-  const { getAllStudents, deleteStudent, students, activeGroup, _id } =
-    useController()
+  const { getAllStudents, deleteStudent, students } = useController()
   const { id } = useParams()
 
   useEffect(() => {
@@ -30,13 +31,16 @@ export default function AllStudents() {
                     <div className="textBody">
                       <a href={`/students/${student._id}`}>{student.body}</a>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.attendance}
+                        {/* CALL THE DYNAMIC FUNCTION HERE
+                        {student.attendance} */}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.hwCompletion}
+                        {/* CALL THE DYNAMIC FUNCTION HERE
+                        {student.hwCompletion} */}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.participation}
+                        {/* CALL THE DYNAMIC FUNCTION HERE
+                        {student.participation} */}
                       </span>
                     </div>
                     <div className="textP">

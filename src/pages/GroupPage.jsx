@@ -29,13 +29,9 @@ export default function SingleGroup() {
   })
   const [updatedBody, setUpdatedBody] = useState('')
   const [updatedCompleted, setUpdatedCompleted] = useState(false)
-  //added states on Thursday - just a string
   const [updatedCategory, setUpdatedCategory] = useState('')
   const [updatedDays, setUpdatedDays] = useState('')
   const [showRateForm, setShowRateForm] = useState(false)
-
-  // const [updatedCategory, setUpdatedCategory] = useState(activeGroup.category)
-  // const [updatedDays, setUpdatedDays] = useState(activeGroup.days)
 
   const fetchAndLoadGroup = async () => {
     setLoading(true)

@@ -141,24 +141,11 @@ function useHook() {
       console.error(error)
     }
   }
-  async function updateStudent(
-    id,
-    student,
-    // attendance,
-    // hwCompletion,
-    // participation,
-    email,
-    telephone,
-    address,
-    group
-  ) {
+  async function updateStudent(id, student, email, telephone, address, group) {
     try {
       const updatedStudent = await studentService.updateStudent(
         id,
         student,
-        // attendance,
-        // hwCompletion,
-        // participation,
         email,
         telephone,
         address,
