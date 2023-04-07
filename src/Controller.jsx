@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import groupService from './services/GroupService'
 import studentService from './services/StudentService'
-import RegisterService from './services/RegisterService'
-// import registerService from './services/RegisterService'
+import registerService from './services/RegisterService'
+// import RegisterService from './services/RegisterService'
 
 //2) this is where we create context
 const ControllerContext = createContext({})
@@ -173,34 +173,20 @@ function useHook() {
       console.error(error)
     }
   }
+  useEffect(() => {
+    getAllRegisters()
+  }, [])
 
   // // Registers 2
-  async function createRegister(
-    registerData
-    // register,
-    // student,
-    // group,
-    // attendance,
-    // hwCompletion,
-    // participation,
-    // date
-  ) {
-    // studentService.createRegister(register)
+  async function createRegister(registerData) {
+    // registerService.createRegister(register)
 
     console.log({ registerData })
     console.log('register Data here', registerData)
     // console.log(group)
     try {
       // const data = await response.json()
-      const freshRegister = await studentService.createRegister(
-        registerData
-        // student,
-        // group,
-        // attendance,
-        // hwCompletion,
-        // participation,
-        // date
-      )
+      const freshRegister = await registerService.createRegister(registerData)
       setRegisters((oldRegisters) => [...oldRegisters, freshRegister])
     } catch (error) {
       console.error(error)
@@ -208,16 +194,16 @@ function useHook() {
   }
   async function getAllRegisters() {
     try {
-      const results2 = await studentService.getAllRegisters()
-      setRegisters(results2)
-      console.log(results2)
+      const results3 = await registerService.getAllRegisters()
+      setRegisters(results3)
+      console.log(results3)
     } catch (error) {
       console.error(error)
     }
   }
   async function getSingleRegister(id) {
     try {
-      const results = await studentService.getOneRegister(id)
+      const results = await registerService.getOneRegister(id)
       setRegisters(results)
       return results
     } catch (error) {
@@ -235,7 +221,7 @@ function useHook() {
     date
   ) {
     try {
-      const updatedRegister = await studentService.updateRegister(
+      const updatedRegister = await registerService.updateRegister(
         id,
         register,
         student,
@@ -260,7 +246,7 @@ function useHook() {
   }
   async function deleteRegister(id) {
     try {
-      const deletedRegister = await studentService.deleteRegister(id)
+      const deletedRegister = await registerService.deleteRegister(id)
       setRegisters(students.filter((register) => register._id !== id))
       console.log('Deleted Register:', deletedRegister)
     } catch (error) {

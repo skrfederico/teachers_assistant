@@ -20,11 +20,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/groups/:id" element={<GroupPage />} />
           <Route path="/students/:id" element={<StudentPage />} />
-          <Route
-            path="/registers"
-            // path="/groups/:id/rate-students"
-            element={<RateStudentPage />}
-          />
+          <Route path="/registers" element={<RateStudentPage />} />
         </Routes>
       </ProvideController>
     </div>

@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { useController } from '../Controller'
 
 export default function AllGroups() {
-  const { getAllGroups, deleteGroup, groups } = useController()
+  const { getAllGroups, getAllRegisters, deleteGroup, groups } = useController()
 
   useEffect(() => {
     if (groups.length >= 1) {
       getAllGroups()
+      getAllRegisters()
     }
   }, [])
 

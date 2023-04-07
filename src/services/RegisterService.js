@@ -7,6 +7,17 @@ class RegisterService {
     this.instance = axios.create({ baseURL: this.base_URL })
   }
 
+  async getAllRegisters() {
+    const { data } = await this.instance.get('/')
+    return data
+  }
+
+  async getOneRegister(id) {
+    const { data } = await this.instance.get(`/${id}`)
+
+    return data
+  }
+
   async createRegister(registerData) {
     console.log(registerData)
     try {
@@ -27,8 +38,8 @@ class RegisterService {
     }
   }
 }
-
-export default RegisterService
+const registerService = new RegisterService()
+export default registerService
 
 // import axios from 'axios'
 // class RegisterService {
