@@ -1,5 +1,5 @@
 import RegisterService from '../../services/RegisterService'
-import registerService from '../../services/RegisterService'
+// import registerService from '../../services/RegisterService'
 import { SelectInput } from './SelectInput'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -29,6 +29,7 @@ export const RateStudentForm = ({ student, onClick }) => {
     // validacion de datos (selector no vacio...)
     const registerService = new RegisterService()
 
+    console.log(rateForm)
     registerService
       .createRegister({
         student: rateForm.student,
@@ -39,6 +40,7 @@ export const RateStudentForm = ({ student, onClick }) => {
       })
       .then((register) => {
         alert('registro creado ' + register)
+        console.log(register)
         // ocultar boton submit
       })
     // .catch((err) => {

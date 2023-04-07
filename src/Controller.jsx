@@ -199,8 +199,9 @@ function useHook() {
     // date
   ) {
     // studentService.createRegister(register)
+
     console.log({ registerData })
-    console.log(registerData)
+    console.log('register Data here', registerData)
     // console.log(group)
     try {
       // const data = await response.json()

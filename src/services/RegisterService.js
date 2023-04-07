@@ -7,22 +7,15 @@ class RegisterService {
     this.instance = axios.create({ baseURL: this.base_URL })
   }
 
-  async createRegister(
-    registerData,
-    student,
-    group,
-    attendance,
-    hwCompletion,
-    participation
-  ) {
+  async createRegister(registerData) {
     console.log(registerData)
     try {
       const { data } = await this.instance.post('/', {
-        student: student,
-        group: group,
-        attendance: attendance,
-        homework: hwCompletion,
-        participation: participation
+        student: registerData.student,
+        group: registerData.group,
+        attendance: registerData.attendance,
+        homework: registerData.hwCompletion,
+        participation: registerData.participation
       })
       // const response = await this.instance.post('/', registerData)
       // const response = await axios.post('/api/registers', registerData)
