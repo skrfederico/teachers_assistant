@@ -5,6 +5,7 @@ const router = express.Router()
  * Models
  */
 const Student = require('../models/students')
+const { getAllStudents } = require('../services/studentService')
 
 // Read all
 router.get('/', async (req, res) => {
@@ -14,6 +15,12 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error })
   }
+})
+
+// new
+router.get('/data', async (req, res) => {
+  const students = await getAllStudents()
+  res.send(students)
 })
 
 // Create
@@ -72,4 +79,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ error })
   }
 })
+
+//
+
 module.exports = router

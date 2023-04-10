@@ -21,34 +21,13 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions))
-// The following "catch all" route (note the *) is necessary
-// // to return the index.html on all non-AJAX requests
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'))
-// })
 
-// Configure both serve-favicon & static middleware
-// to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
-// const db = require('./backend/db.js')
-// db.once('open', () => {
-//   console.log('connected to mongo')
-// })
-// Put API  here, before the "catch all" route
-
-// THIS CAN BE COMMENTED OUT NOW
-// app.get('/api', (req, res) => {
-//   res.json({ message: 'The API is alive!!!' })
-// })
 app.use('/api/groups', groupController)
 app.use('/api/students', studentController)
 app.use('/api/registers', registerController)
-// app.use(`/api/${activeGroup._id}/rate-students`, registerController)
-
-// The following "catch all" route (note the *) is necessary
-// to return the index.html on all non-AJAX requests
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
