@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useController } from '../Controller'
 
 // import Register from '../models/Register'
-import AllStudents from '../components/AllStudents'
+import AllStudents from '../components/AllStudents/AllStudents'
 
 export default function RateStudentPage() {
   const { id } = useParams()

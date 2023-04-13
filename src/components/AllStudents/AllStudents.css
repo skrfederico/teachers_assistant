@@ -1,0 +1,84 @@
+.allstudents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottomContainer {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 1em;
+}
+
+.single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.textBody {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.textBody a {
+  font-weight: bold;
+  width: 40%;
+  flex-grow: 1; /* Grow to fill remaining space */
+}
+
+.textBody span {
+  width: 15%;
+  font-weight: bold;
+  text-align: center; /* Center text horizontally */
+}
+
+.textP {
+  width: 15%;
+  text-align: center;
+}
+
+.textP p {
+  cursor: pointer;
+  color: grey;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .single {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .text {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .textBody {
+    width: 100%;
+  }
+
+  .textBody a {
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  .textBody span,
+  .textP {
+    width: 100%;
+    margin-top: 0;
+  }
+}

@@ -8,7 +8,7 @@ import CreateGroup from '../components/CreateGroup'
 
 export default function LandingPage() {
   return (
-    <div className="LandingPage">
+    <div className="groupCard">
       <AllGroups />
       <CreateGroup />
     </div>

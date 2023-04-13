@@ -18,13 +18,12 @@ export default function AllGroups() {
 
   return (
     <div className="allgroups">
-      <div className="bottomContainer">
-        {groups.length < 1 && <p>You have no groups!</p>}
-        {groups.length > 1 && (
-          <ul>
-            {groups
-              // .filter((i) => !i.completed)
-              .map((group) => {
+      {groups.length < 1 && <p>You have no groups!</p>}
+      {groups.length > 1 && (
+        <>
+          <div className="single-group-column">
+            {groups.map((group, index) => {
+              if (index % 3 === 0) {
                 return (
                   <div key={group._id} className="single">
                     <div className="text">
@@ -37,10 +36,52 @@ export default function AllGroups() {
                     </div>
                   </div>
                 )
-              })}
-          </ul>
-        )}
-      </div>
+              }
+              return null
+            })}
+          </div>
+
+          <div className="single-group-column">
+            {groups.map((group, index) => {
+              if (index % 3 === 1) {
+                return (
+                  <div key={group._id} className="single">
+                    <div className="text">
+                      <div className="textBody">
+                        <a href={`/groups/${group._id}`}>{group.body}</a>
+                      </div>
+                      <div className="textP">
+                        <p onClick={(event) => deleteGroup(group._id)}>x</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+              return null
+            })}
+          </div>
+
+          <div className="single-group-column">
+            {groups.map((group, index) => {
+              if (index % 3 === 2) {
+                return (
+                  <div key={group._id} className="single">
+                    <div className="text">
+                      <div className="textBody">
+                        <a href={`/groups/${group._id}`}>{group.body}</a>
+                      </div>
+                      <div className="textP">
+                        <p onClick={(event) => deleteGroup(group._id)}>x</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+              return null
+            })}
+          </div>
+        </>
+      )}
     </div>
   )
 }

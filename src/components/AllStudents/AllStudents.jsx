@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { useController } from '../Controller'
+import { useController } from '../../Controller'
 import { useParams } from 'react-router-dom'
+import './AllStudents.css'
 // importing the functions for average
 // import { logGroupStats } from '.studentsCalculations'
 

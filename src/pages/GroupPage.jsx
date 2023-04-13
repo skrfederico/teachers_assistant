@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useController } from '../Controller'
 
-import AllStudents from '../components/AllStudents'
+import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
 import RateStudents from '../components/RateStudents'
 
@@ -115,74 +115,82 @@ export default function SingleGroup() {
   }
 
   return (
-    <div>
-      <h1>Group Page</h1>
-      {loading && <p>loading...</p>}
-      {!loading && activeGroup && (
-        <>
+    <div className="groupCard">
+      {/* <h1>Group Page</h1> */}
+      <div>
+        {loading && <p>loading...</p>}
+        {!loading && activeGroup && (
+          <>
+            {editing ? (
+              <>
+                <input
+                  type="text"
+                  value={updatedBody}
+                  onChange={handleEditForm}
+                  name="body"
+                  style={{
+                    width: 300
+                  }}
+                />
+                <label>
+                  Completed:
+                  <input
+                    type="checkbox"
+                    checked={updatedCompleted}
+                    onChange={handleEditForm}
+                    name="completed"
+                  />
+                </label>
+                <br />
+                <label>
+                  Category:
+                  <select
+                    value={updatedCategory}
+                    onChange={handleEditForm}
+                    name="category"
+                  >
+                    <option value="children">Children</option>
+                    <option value="teens">Teens</option>
+                    <option value="adults">Adults</option>
+                    <option value="intensive">Intensive</option>
+                  </select>
+                </label>
+                <br />
+                <label>
+                  Days:
+                  <input
+                    type="text"
+                    value={updatedDays}
+                    onChange={handleEditForm}
+                    name="days"
+                  />
+                </label>
+              </>
+            ) : (
+              <>
+                <h3>{activeGroup.body}</h3>
+                {/* <p>Completed: {activeGroup.completed ? 'Yes' : 'No'}</p> */}
+                <p>Category: {activeGroup.category}</p>
+                <p>Days: {activeGroup.days}</p>
+              </>
+            )}
+          </>
+        )}
+        <div className="studentsGrid">
+          <div className="studentsHeader">
+            <AllStudents />
+          </div>
+        </div>
+        <div className="nav-bar">
           <button onClick={handleEditToggle}>
             {editing ? 'Save' : 'Edit'}
-          </button>{' '}
-          <button onClick={handleDelete}>Delete</button>{' '}
+          </button>
           <button onClick={() => setShowRateForm((prev) => !prev)}>
             {showRateForm ? 'Close' : 'Rate Students'}
           </button>
-          {editing ? (
-            <>
-              <input
-                type="text"
-                value={updatedBody}
-                onChange={handleEditForm}
-                name="body"
-                style={{
-                  width: 300
-                }}
-              />
-              <label>
-                Completed:
-                <input
-                  type="checkbox"
-                  checked={updatedCompleted}
-                  onChange={handleEditForm}
-                  name="completed"
-                />
-              </label>
-              <br />
-              <label>
-                Category:
-                <select
-                  value={updatedCategory}
-                  onChange={handleEditForm}
-                  name="category"
-                >
-                  <option value="children">Children</option>
-                  <option value="teens">Teens</option>
-                  <option value="adults">Adults</option>
-                  <option value="intensive">Intensive</option>
-                </select>
-              </label>
-              <br />
-              <label>
-                Days:
-                <input
-                  type="text"
-                  value={updatedDays}
-                  onChange={handleEditForm}
-                  name="days"
-                />
-              </label>
-            </>
-          ) : (
-            <p>
-              {activeGroup.body}
-              <p>Completed: {activeGroup.completed ? 'Yes' : 'No'}</p>
-              <p>Category: {activeGroup.category}</p>
-              <p>Days: {activeGroup.days}</p>
-            </p>
-          )}
-        </>
-      )}
-      <AllStudents />
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      </div>
 
       {showRateForm && (
         <RateStudents
