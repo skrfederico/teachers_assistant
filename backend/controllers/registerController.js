@@ -19,11 +19,22 @@ router.get('/', async (req, res) => {
 // Create
 router.post('/', async (req, res) => {
   try {
-    // const { body } = req
-    // const createdRegister = await Register.create({ ...body })
-    const createdRegister = await Register.create(req.body)
-    console.log(req.body)
-    return res.json(createdRegister)
+    const { body } = req
+    const registerForm = { ...body }
+    const createdRegister = await Register.create(registerForm)
+    // buscar estudiante, grupo y aparte traer todos los demas registros correspondientes
+    // registros.forEach (registro) => totalClases = registros.length
+    // total - asistencias * 3 (idea de calculo datos)
+    // 3 datos actualizan student
+    // //OLD CODE
+    // router.post('/', async (req, res) => {
+    //   try {
+    //     // const { body } = req
+    //     // const createdRegister = await Register.create({ ...body })
+    //     const createdRegister = await Register.create(req.body)
+    //     console.log(req.body)
+    //     return res.json(createdRegister)
+    res.json(createdRegister)
   } catch (error) {
     res.status(500).json({ error })
   }

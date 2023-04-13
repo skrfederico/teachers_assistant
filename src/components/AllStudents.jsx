@@ -31,16 +31,13 @@ export default function AllStudents() {
                     <div className="textBody">
                       <a href={`/students/${student._id}`}>{student.body}</a>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {/* CALL THE DYNAMIC FUNCTION HERE
-                        {student.attendance} */}
+                        {student.attendance}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {/* CALL THE DYNAMIC FUNCTION HERE
-                        {student.hwCompletion} */}
+                        {student.hwCompletion}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {/* CALL THE DYNAMIC FUNCTION HERE
-                        {student.participation} */}
+                        {student.participation}
                       </span>
                     </div>
                     <div className="textP">

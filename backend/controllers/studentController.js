@@ -17,12 +17,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-// new
-router.get('/data', async (req, res) => {
-  const students = await getAllStudents()
-  res.send(students)
-})
-
 // Create
 router.post('/', async (req, res) => {
   try {
@@ -80,6 +74,11 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-//
+// //old code
+// // new
+// router.get('/data', async (req, res) => {
+//   const students = await getAllStudents()
+//   res.send(students)
+// })
 
 module.exports = router
