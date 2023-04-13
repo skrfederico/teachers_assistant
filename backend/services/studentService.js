@@ -3,35 +3,33 @@ const Student = require('../models/students')
 const Register = require('../models/registers')
 
 const getAllStudents = async () => {
-  return (await Student.find()).map(async (student) => {
-    const studentRegisters = await Register.find({})
-      .where('student')
-      .equals(student._id)
-    return {
-      ...student,
-      attendance: averageAttendance(studentRegisters),
-      averageHwCompletion: averageHwCompletion(studentRegisters),
-      averageParticipation: averageParticipation(studentRegisters)
-    }
-  })
+  let students = await Student.find()
+
+  const studentsWithRegisters = await Promise.all(
+    students.map((student) => addRegistersToStudent(student))
+  )
+  return studentsWithRegisters
+}
+
+const getSingleStudent = async (id) => {
+  const student = await Student.findById(id)
+  return await addRegistersToStudent(student)
 }
 
 const averageAttendance = (registers) => {
-  const attendanceListCounter = registers.filter(
+  const attendanceList = registers.filter(
     (register) => register.attendance === true
   )
-  const attendance = attendanceListCounter.length
-  const attendanceList = registers.map((register) => register.attendance)
-  return createAverage(attendance, attendanceList)
+  const attendanceListCounter = attendanceList.length
+  return createAverage(attendanceListCounter, registers.length)
 }
 
 const averageHwCompletion = (registers) => {
-  const hwCompletionCounter = registers.filter(
+  const hwCompletionList = registers.filter(
     (register) => register.hwCompletion === true
   )
-  const hwCompletion = hwCompletionCounter.length
-  const homeworkList = registers.map((register) => register.hwCompletion)
-  return createAverage(hwCompletion, homeworkList)
+  const hwCompletionCounter = hwCompletionList.length
+  return createAverage(hwCompletionCounter, registers.length)
 }
 
 const averageParticipation = (registers) => {
@@ -76,9 +74,26 @@ const averageParticipation = (registers) => {
   return participationLetter
 }
 
-const createAverage = (items, total) => {
-  const average = (items / total) * 10
-  return average
+const createAverage = (amountPositiveValues, total) => {
+  const average = (amountPositiveValues / total) * 100
+  return Math.round(average)
 }
 
-module.exports = { getAllStudents }
+const addRegistersToStudent = async (student) => {
+  const registers = await Register.find({}).where('student').equals(student._id)
+
+  console.log('student: ' + student.body + ' registers', registers.length)
+
+  return {
+    _id: student._id,
+    body: student.body,
+    group: student.group,
+    averageAttendance: registers.length > 0 ? averageAttendance(registers) : 0,
+    averageHwCompletion:
+      registers.length > 0 ? averageHwCompletion(registers) : 0,
+    averageParticipation:
+      registers.length > 0 ? averageParticipation(registers) : 'C'
+  }
+}
+
+module.exports = { getAllStudents, getSingleStudent }

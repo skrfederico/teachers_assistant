@@ -11,6 +11,7 @@ const registerController = require('./backend/controllers/registerController')
 require('./backend/config/database')
 
 const cors = require('cors')
+const EmailController = require('./backend/controllers/EmailController')
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use('/api/groups', groupController)
 app.use('/api/students', studentController)
 app.use('/api/registers', registerController)
+// app.use('/api/email', EmailController)
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })

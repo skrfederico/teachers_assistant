@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useController } from '../../Controller'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './AllStudents.css'
-// importing the functions for average
-// import { logGroupStats } from '.studentsCalculations'
 
 export default function AllStudents() {
   const { getAllStudents, deleteStudent, students } = useController()
@@ -32,16 +31,20 @@ export default function AllStudents() {
                     <div className="textBody">
                       <a href={`/students/${student._id}`}>{student.body}</a>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.attendance}
+                        {student.averageAttendance}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.hwCompletion}
+                        {student.averageHwCompletion}
                       </span>
                       <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.participation}
+                        {student.averageParticipation}
                       </span>
                     </div>
-                    <div className="textP">
+                    <div
+                      className="textP"
+                      style={{ display: 'flex', gap: '16px' }}
+                    >
+                      <Link to={`/report/${student._id}`}>Reports</Link>
                       <p onClick={() => deleteStudent(student._id)}>x</p>
                     </div>
                   </div>

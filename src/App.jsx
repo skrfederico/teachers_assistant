@@ -9,7 +9,8 @@ import LandingPage from './pages/LandingPage'
 import GroupPage from './pages/GroupPage'
 import StudentPage from './pages/StudentPage'
 import TodaysDate from './components/TodaysDate'
-import RateStudentPage from './pages/RateStudentPage'
+// import RateStudentPage from './pages/RateStudentPage'
+import ReportPage from './pages/ReportPage'
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/groups/:id" element={<GroupPage />} />
           <Route path="/students/:id" element={<StudentPage />} />
-          <Route path="/registers" element={<RateStudentPage />} />
+          <Route path="/report/:id" element={<ReportPage />} />
+          {/* <Route path="/registers" element={<RateStudentPage />} /> */}
         </Routes>
       </ProvideController>
     </div>

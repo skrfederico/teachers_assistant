@@ -5,13 +5,16 @@ const router = express.Router()
  * Models
  */
 const Student = require('../models/students')
-const { getAllStudents } = require('../services/studentService')
+const {
+  getAllStudents,
+  getSingleStudent
+} = require('../services/studentService')
 
 // Read all
 router.get('/', async (req, res) => {
   try {
-    const query = await Student.find({})
-    return res.json(query)
+    const students = await getAllStudents()
+    res.status(200).json(students)
   } catch (error) {
     res.status(500).json({ error })
   }
@@ -64,21 +67,15 @@ router.delete('/:id', async (req, res) => {
 
 // read one
 router.get('/:id', async (req, res) => {
-  const { id } = req.params
-
   try {
-    const query = await Student.findOne({ _id: id })
-    return res.json(query)
+    const { id } = req.params
+    const student = await getSingleStudent(id)
+    return res.json(student)
   } catch (error) {
     res.status(500).json({ error })
   }
 })
 
-// //old code
-// // new
-// router.get('/data', async (req, res) => {
-//   const students = await getAllStudents()
-//   res.send(students)
-// })
+//
 
 module.exports = router
