@@ -23,35 +23,53 @@ export default function AllStudents() {
           <p>You have no students in this group!</p>
         )}
         {filteredStudents.length > 0 && (
-          <ul>
-            {filteredStudents.map((student) => {
-              return (
-                <div key={student._id} className="single">
-                  <div className="text">
-                    <div className="textBody">
-                      <a href={`/students/${student._id}`}>{student.body}</a>
-                      <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.averageAttendance}
-                      </span>
-                      <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.averageHwCompletion}
-                      </span>
-                      <span style={{ marginLeft: '1em', fontWeight: 'bold' }}>
-                        {student.averageParticipation}
-                      </span>
-                    </div>
-                    <div
-                      className="textP"
-                      style={{ display: 'flex', gap: '16px' }}
-                    >
-                      <Link to={`/report/${student._id}`}>Reports</Link>
-                      <p onClick={() => deleteStudent(student._id)}>x</p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </ul>
+          <>
+            <table className="items-center w-full bg-transparent border-collapse">
+              <thead>
+                <tr>
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Student name
+                  </th>
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Attendance
+                  </th>
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    HW Completion
+                  </th>
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Participation
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredStudents.map((student) => (
+                  <tr key={student._id}>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                      <a href={`/students/${student._id}`}>
+                        {student.body}{' '}
+                        <Link to={`/report/${student._id}`}>🔖</Link>
+                      </a>
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      {student.averageAttendance} %
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      {student.averageHwCompletion} %
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                      {student.averageParticipation}
+                    </td>
+                    <td>
+                      <button onClick={() => deleteStudent(student._id)}>
+                        x
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
     </div>

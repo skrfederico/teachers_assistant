@@ -95,6 +95,7 @@ export default function StudentPage() {
     setEditing((prev) => !prev)
   }
   console.log('this is activeStudent', activeStudent)
+
   return (
     <div>
       <h1>Student Page</h1>
