@@ -25,7 +25,11 @@ export default function AllGroups() {
             {groups.map((group, index) => {
               if (index % 3 === 0) {
                 return (
-                  <div key={group._id} className="single">
+                  <div
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    key={group._id}
+                    // className="single"
+                  >
                     <div className="text">
                       <div className="textBody">
                         <a href={`/groups/${group._id}`}>{group.body}</a>
@@ -45,7 +49,10 @@ export default function AllGroups() {
             {groups.map((group, index) => {
               if (index % 3 === 1) {
                 return (
-                  <div key={group._id} className="single">
+                  <div
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    key={group._id}
+                  >
                     <div className="text">
                       <div className="textBody">
                         <a href={`/groups/${group._id}`}>{group.body}</a>
@@ -65,7 +72,10 @@ export default function AllGroups() {
             {groups.map((group, index) => {
               if (index % 3 === 2) {
                 return (
-                  <div key={group._id} className="single">
+                  <div
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    key={group._id}
+                  >
                     <div className="text">
                       <div className="textBody">
                         <a href={`/groups/${group._id}`}>{group.body}</a>
