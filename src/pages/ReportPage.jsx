@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import AverageAttendance from '../components/AverageAttendance'
-// import AverageHwCompletion from '../components/AverageHwCompletion'
+import AverageHwCompletion from '../components/AverageHwCompletion'
 // import AverageParticipation from '../components/AverageParticipation'
 
+// import { createEmail } from ''
 import { useController } from '../Controller'
 
 export default function ReportPage() {
@@ -25,7 +26,22 @@ export default function ReportPage() {
     }
   }, [])
   console.log(student)
-
+  // console.log('this is student.mail', student.email)
+  const handleClick = async () => {
+    const response = await fetch('/api/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        receiver: 'fedeinnyc@gmail.com',
+        subject: 'Your subject',
+        message: 'Your message'
+      })
+    })
+    const data = await response.json()
+    console.log(data)
+  }
   return (
     <>
       {student && (
@@ -37,12 +53,12 @@ export default function ReportPage() {
             <p>Attendance {student.averageAttendance}</p>
             <AverageAttendance student={student} />
             <p>Homework {student.averageHwCompletion}</p>
-            {/* <AverageHwCompletion /> */}
+            <AverageHwCompletion student={student} />
             <p>Participation {student.averageParticipation}</p>
             {/* <AverageParticipation /> */}
           </section>
 
-          <button>Send Email ✉️</button>
+          <button onClick={handleClick}>Send Email ✉️</button>
         </main>
       )}
     </>
