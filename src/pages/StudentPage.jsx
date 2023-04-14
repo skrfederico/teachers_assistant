@@ -28,6 +28,7 @@ export default function StudentPage() {
     setLoading(true)
     try {
       const group = await getSingleStudent(id)
+      console.log('this is group', group)
       setActiveStudent(group)
     } catch (error) {
       console.error(error)
@@ -93,7 +94,7 @@ export default function StudentPage() {
     }
     setEditing((prev) => !prev)
   }
-
+  console.log('this is activeStudent', activeStudent)
   return (
     <div>
       <h1>Student Page</h1>

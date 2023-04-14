@@ -82,8 +82,8 @@ const createAverage = (amountPositiveValues, total) => {
 const addRegistersToStudent = async (student) => {
   const registers = await Register.find({}).where('student').equals(student._id)
 
-  console.log('student: ' + student.body + ' registers', registers.length)
-
+  console.log('student: ' + student + ' registers', registers.length)
+  console.log('this is student', student)
   return {
     _id: student._id,
     body: student.body,
@@ -92,7 +92,10 @@ const addRegistersToStudent = async (student) => {
     averageHwCompletion:
       registers.length > 0 ? averageHwCompletion(registers) : 0,
     averageParticipation:
-      registers.length > 0 ? averageParticipation(registers) : 'C'
+      registers.length > 0 ? averageParticipation(registers) : 'C',
+    address: student.address,
+    telephone: student.telephone,
+    email: student.email
   }
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { useParams } from 'react-router-dom'
 
-// import AverageAttendance from '../components/AverageAttendance'
+import AverageAttendance from '../components/AverageAttendance'
 // import AverageHwCompletion from '../components/AverageHwCompletion'
 // import AverageParticipation from '../components/AverageParticipation'
 
@@ -30,12 +30,12 @@ export default function ReportPage() {
     <>
       {student && (
         <main>
-          <h1>Report Page</h1>
+          <h1 className="text-3xl text-blue-900">Report Page</h1>
 
           <section>
             <p>Name {student.body}</p>
             <p>Attendance {student.averageAttendance}</p>
-            {/* <AverageAttendance /> */}
+            <AverageAttendance student={student} />
             <p>Homework {student.averageHwCompletion}</p>
             {/* <AverageHwCompletion /> */}
             <p>Participation {student.averageParticipation}</p>

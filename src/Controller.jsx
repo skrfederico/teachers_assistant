@@ -135,6 +135,8 @@ function useHook() {
   async function getSingleStudent(id) {
     try {
       const results = await studentService.getOneStudent(id)
+      console.log('this is getSingle', results)
+
       setStudents(results)
       return results
     } catch (error) {

@@ -30,16 +30,22 @@ export default function CreateStudent() {
   return (
     <div>
       <br></br>
-      <div>
+      <div class="relative flex w-full flex-wrap items-stretch mb-3">
         <input
           type="text"
           value={input}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
+          placeholder="Student's name"
+          class="px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pr-10"
         />
-        <div>
-          <button onClick={handleSubmit}>Submit Student</button>
-        </div>
+        <span class="z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+
+      <div>
+        <button onClick={handleSubmit}>Submit Student</button>
       </div>
     </div>
   )
