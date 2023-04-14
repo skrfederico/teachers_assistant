@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import AverageAttendance from '../components/AverageAttendance'
 import AverageHwCompletion from '../components/AverageHwCompletion'
-// import AverageParticipation from '../components/AverageParticipation'
+import AverageParticipation from '../components/AverageParticipation'
 
 // import { createEmail } from ''
 import { useController } from '../Controller'
@@ -55,7 +55,7 @@ export default function ReportPage() {
             <p>Homework {student.averageHwCompletion}</p>
             <AverageHwCompletion student={student} />
             <p>Participation {student.averageParticipation}</p>
-            {/* <AverageParticipation /> */}
+            <AverageParticipation student={student} />
           </section>
 
           <button onClick={handleClick}>Send Email ✉️</button>
