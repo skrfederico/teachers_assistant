@@ -29,16 +29,23 @@ export default function CreateGroup() {
       <div
       // style={{width:300}}
       >
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-        />
+        <div className="mb-3 pt-0">
+          <input
+            type="text"
+            style={{ width: 300 }}
+            value={input}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Group name"
+            className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+          />
+        </div>
         <div>
           <button
             onClick={handleSubmit}
-            // style={{display: "flex-end"}}
+            // style={{ display: 'flex-end' }}
+            class="bg-sky-500 text-white active:bg-sky-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button"
           >
             Submit Group
           </button>

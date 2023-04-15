@@ -44,11 +44,16 @@ export default function AllStudents() {
               <tbody>
                 {filteredStudents.map((student) => (
                   <tr key={student._id}>
-                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                      <a href={`/students/${student._id}`}>
+                    <td>
+                      <Link to={`/report/${student._id}`}>🔖</Link>
+                      {/* <div className="ml-6"> */}
+                      <a
+                        className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                        href={`/students/${student._id}`}
+                      >
                         {student.body}{' '}
-                        <Link to={`/report/${student._id}`}>🔖</Link>
                       </a>
+                      {/* </div> */}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                       {student.averageAttendance} %
