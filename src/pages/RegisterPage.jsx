@@ -35,6 +35,11 @@ export default function RegisterPage() {
     console.log(activeRegister)
   }, [activeRegister])
 
+  const date = new Date('{activeRegister.date}')
+  const formattedDate = `${
+    date.getMonth() + 1
+  }/${date.getDate()}/${date.getFullYear()}`
+
   return (
     <div>
       {loading && <p>loading...</p>}
@@ -83,22 +88,37 @@ export default function RegisterPage() {
                       </div>
                     </div>
                     <div className="text-center mt-12">
-                      <h2 className="text-3xl">{activeRegister.student}</h2>
+                      {/* <h2 className="text-3xl">{activeRegister.student}</h2>
                       <p>Group: {activeRegister.group}</p>
                       <h4 className="text-2xl">{activeRegister.date}</h4>
+                                            <h4 className="text-2xl">{formattedDate}</h4> */}
+                      <h2 className="text-3xl">Student's name</h2>
+                      <p>Group: group's name</p>
+                      <h4 className="text-2xl">date</h4>
                     </div>
                     <div className="mt-10 py-10 border-t border-gray-300 text-center">
                       <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-9/12 px-4">
                           <div>
-                            <p>
+                            {/* <p>
                               Attendance: {activeRegister.attendance.toString()}
+                              Attendance: {activeRegister.attendance ?
+  <i className="fas fa-check-square"></i> :
+  <i className="fas fa-times"></i>
+}
                             </p>
                             <p>
                               Homework Completion:{' '}
                               {activeRegister.hwCompletion.toString()}
+                              Homework Completion: {activeRegister.hwCompletion ?
+  <i className="fas fa-check-square"></i> :
+  <i className="fas fa-times"></i>
+}
                             </p>
-                            <p>Participation: {activeRegister.participation}</p>
+                            <p>Participation: {activeRegister.participation}</p> */}
+                            <p>Attendance: true</p>
+                            <p>Homework Completion: false </p>
+                            <p>Participation: X</p>
                           </div>
                         </div>
                       </div>

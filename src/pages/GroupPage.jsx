@@ -195,7 +195,7 @@ export default function SingleGroup() {
                     <i className="fas fa-arrow-up"></i> 3
                   </span>
                   <span className="whitespace-nowrap">
-                    Category: {activeGroup.category}
+                    Institution: {activeGroup.institution}
                   </span> */}
                               Classes on: {activeGroup.days}
                             </p>
