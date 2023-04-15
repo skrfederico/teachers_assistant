@@ -11,6 +11,7 @@ import StudentPage from './pages/StudentPage'
 import TodaysDate from './components/TodaysDate'
 // import RateStudentPage from './pages/RateStudentPage'
 import ReportPage from './pages/ReportPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/groups/:id" element={<GroupPage />} />
           <Route path="/students/:id" element={<StudentPage />} />
           <Route path="/report/:id" element={<ReportPage />} />
-          {/* <Route path="/registers" element={<RateStudentPage />} /> */}
+          <Route path="/registers/:id" element={<RegisterPage />} />
         </Routes>
       </ProvideController>
     </div>
