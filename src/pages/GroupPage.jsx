@@ -25,11 +25,13 @@ export default function SingleGroup() {
     body: '',
     completed: false, // default value is false
     category: '',
+    institution: '',
     days: ''
   })
   const [updatedBody, setUpdatedBody] = useState('')
   const [updatedCompleted, setUpdatedCompleted] = useState(false)
   const [updatedCategory, setUpdatedCategory] = useState('')
+  const [updatedInstitution, setUpdatedInstitution] = useState('')
   const [updatedDays, setUpdatedDays] = useState('')
   const [showRateForm, setShowRateForm] = useState(false)
 
@@ -54,6 +56,7 @@ export default function SingleGroup() {
       setUpdatedBody(activeGroup.body)
       setUpdatedCompleted(activeGroup.completed)
       setUpdatedCategory(activeGroup.category)
+      setUpdatedInstitution(activeGroup.institution)
       setUpdatedDays(activeGroup.days)
     }
   }, [editing])
@@ -72,6 +75,7 @@ export default function SingleGroup() {
       completed: updatedCompleted,
       //added Thursday
       category: updatedCategory,
+      institution: setUpdatedInstitution,
       days: updatedDays
     }))
   }
@@ -97,6 +101,7 @@ export default function SingleGroup() {
       const stateUpdater = {
         body: setUpdatedBody,
         category: setUpdatedCategory,
+        institution: setUpdatedInstitution,
         days: setUpdatedDays
       }[name]
       stateUpdater(value)

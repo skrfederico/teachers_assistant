@@ -66,7 +66,15 @@ function useHook() {
       console.error(error)
     }
   }
-  async function updateGroup(id, group, groupId, completed, category, days) {
+  async function updateGroup(
+    id,
+    group,
+    groupId,
+    completed,
+    category,
+    institution,
+    days
+  ) {
     try {
       const updatedGroup = await groupService.updateGroup(
         id,
@@ -74,6 +82,7 @@ function useHook() {
         groupId,
         completed,
         category,
+        institution,
         days
       )
       setGroups((oldGroups) =>

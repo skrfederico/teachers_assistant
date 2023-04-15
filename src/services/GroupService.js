@@ -42,11 +42,12 @@ class GroupService {
     console.error(error)
   }
 
-  async updateGroup(id, group, completed, category, days) {
+  async updateGroup(id, group, completed, category, institution, days) {
     const { data } = await this.instance.put(`/${id}`, {
       body: group,
       completed: completed,
       category: category,
+      institution: institution,
       days: days
     })
     return data

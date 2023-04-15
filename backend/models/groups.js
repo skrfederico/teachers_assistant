@@ -8,6 +8,9 @@ const groupSchema = new mongoose.Schema({
     type: String,
     enum: ['children', 'teens', 'adults', 'intensive']
   },
+  institution: {
+    type: String
+  },
   days: {
     type: String
   },

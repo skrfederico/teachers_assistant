@@ -2,8 +2,6 @@ import React from 'react'
 import { useController } from '../Controller'
 
 export default function TemplatePage() {
-  const { registers } = useController()
-
   return (
     <>
       <main className="profile-page">
