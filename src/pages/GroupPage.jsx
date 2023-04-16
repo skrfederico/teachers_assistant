@@ -5,6 +5,7 @@ import { useController } from '../Controller'
 import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
 import RateStudents from '../components/RateStudents'
+// import RateModal from '../components/RateModal'
 
 export default function SingleGroup() {
   const { id } = useParams()
@@ -172,7 +173,6 @@ export default function SingleGroup() {
                   <div className="text-center mt-12">
                     <div className="flex flex-wrap">
                       <div className="w-full px-4">
-                        {/* <div className="w-full lg:w-6/12 xl:w-3/12 px-4"> */}
                         <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                           <div className="flex-auto p-4">
                             <div className="flex flex-wrap">
@@ -203,11 +203,6 @@ export default function SingleGroup() {
                         </div>
                       </div>
                     </div>
-                    <div className="studentsGrid">
-                      <div className="studentsHeader">
-                        <AllStudents />
-                      </div>
-                    </div>
                     <div class="flex flex-wrap py-2">
                       <div class="w-full px-4">
                         <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-zinc-500 rounded">
@@ -219,6 +214,7 @@ export default function SingleGroup() {
                               >
                                 {showRateForm ? 'Close' : 'Rate Students'}{' '}
                               </a>
+                              {/* <RateModal /> */}
                               <button
                                 class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                                 type="button"
@@ -263,15 +259,19 @@ export default function SingleGroup() {
                         </nav>
                       </div>
                     </div>
+                    {showRateForm && (
+                      <RateStudents
+                        students={students}
+                        groupId={groupId}
+                        registers={registers}
+                      />
+                    )}
+                    <div className="studentsGrid">
+                      <div className="studentsHeader">
+                        <AllStudents />
+                      </div>
+                    </div>
                   </div>
-
-                  {showRateForm && (
-                    <RateStudents
-                      students={students}
-                      groupId={groupId}
-                      registers={registers}
-                    />
-                  )}
                 </div>
                 <CreateStudent />
               </div>

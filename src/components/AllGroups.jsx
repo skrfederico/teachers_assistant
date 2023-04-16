@@ -16,6 +16,15 @@ export default function AllGroups() {
   //   deleteGroup(id)
   // }
 
+  // <FontAwesomeIcon icon="fa-thin fa-school" />
+  //  <FontAwesomeIcon icon="fa-regular fa-children" />
+  {
+    /* <FontAwesomeIcon icon="fa-duotone fa-face-sunglasses" /> */
+  }
+  {
+    /* <FontAwesomeIcon icon="fa-sharp fa-regular fa-user-group" /> */
+  }
+
   return (
     <div className="allgroups">
       {groups.length < 1 && <p>You have no groups!</p>}

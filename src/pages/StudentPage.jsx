@@ -156,52 +156,74 @@ export default function StudentPage() {
                           {editing ? (
                             <>
                               <label>
-                                Body:
+                                <strong>Name:</strong>
                                 <input
                                   type="text"
+                                  name="body"
+                                  style={{ width: 300 }}
                                   value={updatedBody}
                                   onChange={handleEditForm}
-                                  name="body"
-                                  style={{
-                                    width: 300
-                                  }}
+                                  className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 />
                               </label>
                               <br />
                               <label>
-                                Email:
+                                <strong>Email:</strong>
+
                                 <input
                                   type="text"
+                                  name="email"
+                                  style={{ width: 300 }}
                                   value={updatedEmail}
                                   onChange={handleEditForm}
-                                  name="email"
+                                  className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 />
                               </label>
                               <br />
                               <label>
-                                Telephone:
+                                <strong>Telephone:</strong>
                                 <input
                                   type="text"
+                                  name="telephone"
+                                  style={{ width: 300 }}
                                   value={updatedTelephone}
                                   onChange={handleEditForm}
-                                  name="telephone"
+                                  className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 />
                               </label>
                               <br />
                               <label>
-                                Address:
+                                <strong>Address:</strong>
                                 <input
                                   type="text"
+                                  name="address"
+                                  style={{ width: 300 }}
                                   value={updatedAddress}
                                   onChange={handleEditForm}
-                                  name="address"
+                                  className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 />
                               </label>
                               <br />
-                              <button onClick={handleEditToggle}>
+                              {/* <button onClick={handleEditToggle}>
                                 {editing ? 'Save' : 'Edit'}
                               </button>{' '}
-                              <button onClick={handleDelete}>Delete</button>
+  */}
+                              <button
+                                onClick={handleEditToggle}
+                                // style={{ display: 'flex-end' }}
+                                class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                              >
+                                {editing ? 'Save' : 'Edit'}
+                              </button>{' '}
+                              <button
+                                onClick={handleDelete}
+                                // style={{ display: 'flex-end' }}
+                                class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                              >
+                                Delete
+                              </button>
                             </>
                           ) : (
                             <>
@@ -213,10 +235,22 @@ export default function StudentPage() {
                                 <strong>Address:</strong>{' '}
                                 {activeStudent.address} <br />{' '}
                               </p>
-                              <button onClick={handleEditToggle}>
+                              <button
+                                onClick={handleEditToggle}
+                                // style={{ display: 'flex-end' }}
+                                class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                              >
                                 {editing ? 'Save' : 'Edit'}
                               </button>{' '}
-                              <button onClick={handleDelete}>Delete</button>
+                              <button
+                                onClick={handleDelete}
+                                // style={{ display: 'flex-end' }}
+                                class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                              >
+                                Delete
+                              </button>
                             </>
                           )}
                         </div>

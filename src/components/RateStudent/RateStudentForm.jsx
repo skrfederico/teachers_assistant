@@ -1,5 +1,4 @@
 import RegisterService from '../../services/RegisterService'
-// import registerService from '../../services/RegisterService'
 import { SelectInput } from './SelectInput'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -81,33 +80,35 @@ export const RateStudentForm = ({ student, onClick }) => {
   //
   return (
     <div>
-      <h3>
+      <h2 className="text-xl p-4">
         <strong>{student.body}</strong>
-      </h3>
+      </h2>
       <form onSubmit={handleOnSubmit}>
         <div>
-          <label>
-            Attendance:
+          <label class="inline-flex items-center">
+            <span class="italic mr-2">Attendance :</span>
             <input
               type="checkbox"
               name="attendance"
+              class="form-checkbox h-5 w-5 text-gray-600"
               onChange={handleOnChange}
             />
           </label>
         </div>
         <div>
-          <label>
-            Homework Completion:
+          <label class="inline-flex items-center">
+            <span class="italic mr-2">Homework Completion :</span>
             <input
               type="checkbox"
               name="hwCompletion"
+              class="form-checkbox h-5 w-5 text-gray-600"
               onChange={handleOnChange}
             />
           </label>
         </div>
         <div>
           <SelectInput
-            label="participation"
+            label={<span class="italic mr-2">Participation:</span>}
             name="participation"
             defaultD={defaultD}
             onChange={handleOnChange}
@@ -121,8 +122,13 @@ export const RateStudentForm = ({ student, onClick }) => {
             ]}
           />
         </div>
-        <button id={'button-submit-' + student.id} type="submit">
-          Submit Ratings
+
+        <button
+          id={'button-submit-' + student.id}
+          className="mt-6 bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="submit"
+        >
+          Submit register{' '}
         </button>
       </form>
     </div>

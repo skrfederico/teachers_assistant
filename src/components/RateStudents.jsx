@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { RateStudentForm } from './RateStudent/RateStudentForm'
+// import { RateModal } from './RateModal'
 import { useRateStudents } from './RateStudent/RateStudents.hook'
 
 export default function RateStudents({ students, groupId, registers }) {
@@ -35,9 +36,15 @@ export default function RateStudents({ students, groupId, registers }) {
                 }}
               >
                 <RateStudentForm student={student} />
-
+                {/* <RateModal student={student} /> */}
                 {hasNextStudent() && (
-                  <button onClick={nextStudent}>Next Student</button>
+                  <button
+                    onClick={nextStudent}
+                    className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                  >
+                    Next student
+                  </button>
                 )}
               </div>
             ))}
