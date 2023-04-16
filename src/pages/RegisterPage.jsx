@@ -20,8 +20,6 @@ export default function RegisterPage() {
       const register = await getSingleRegister(id)
       setActiveRegister(register)
       const groupId = activeRegister.group
-      console.log('a', register)
-      console.log('b', activeRegister)
     } catch (error) {
       console.error(error)
     } finally {

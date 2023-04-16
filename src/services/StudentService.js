@@ -17,12 +17,10 @@ class StudentService {
 
   async getOneStudent(id) {
     const { data } = await this.instance.get(`/${id}`)
-    console.log('this is data', data)
     return data
   }
 
   async createStudent(student) {
-    console.log(student)
     try {
       const { data } = await this.instance.post('/', student)
       return data

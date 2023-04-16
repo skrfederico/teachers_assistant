@@ -30,10 +30,7 @@ router.post('/', async (req, res) => {
 // Update
 router.put('/:id', async (req, res) => {
   const { id } = req.params
-  console.log('body', req.body)
-  console.log('params', req.params)
   // const { days } = req.body
-  console.log('Received PUT request for Review with ID', id)
   try {
     const updatedGroup = await Group.findByIdAndUpdate(id, req.body, {
       new: true
@@ -49,10 +46,8 @@ router.put('/:id', async (req, res) => {
 // Delete
 router.delete('/:id', async (req, res) => {
   const { id } = req.params
-  console.log(id)
   try {
     const deletedGroup = await Group.findByIdAndDelete(id)
-    // console.log('router delete')
     return res.json({ message: 'Group deleted successfully' })
   } catch (error) {
     console.log('error')
