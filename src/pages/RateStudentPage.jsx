@@ -111,7 +111,7 @@ export default function RateStudentPage() {
           </label>
           <br />
           <label>
-            Homework Completion:
+            Homework completion:
             <input
               type="checkbox"
               checked={homeworkCompletion}

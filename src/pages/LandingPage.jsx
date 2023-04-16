@@ -18,12 +18,7 @@ export default function LandingPage() {
                 "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')"
               // "url('https://unsplash.com/photos/RX7SCPRjti0')"
             }}
-          >
-            {/* <span
-              id="blackOverlay"
-              className="w-full h-full absolute opacity-50 bg-black"
-            ></span> */}
-          </div>
+          ></div>
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
             style={{ height: '70px' }}

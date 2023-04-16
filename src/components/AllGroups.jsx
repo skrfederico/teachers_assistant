@@ -35,7 +35,7 @@ export default function AllGroups() {
               if (index % 3 === 0) {
                 return (
                   <div
-                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-custom"
                     key={group._id}
                     // className="single"
                   >
@@ -59,7 +59,7 @@ export default function AllGroups() {
               if (index % 3 === 1) {
                 return (
                   <div
-                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-custom"
                     key={group._id}
                   >
                     <div className="text">
@@ -82,7 +82,7 @@ export default function AllGroups() {
               if (index % 3 === 2) {
                 return (
                   <div
-                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-lg"
+                    className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-custom"
                     key={group._id}
                   >
                     <div className="text">

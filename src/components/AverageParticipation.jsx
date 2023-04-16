@@ -81,7 +81,18 @@ export default function AverageParticipation({ student }) {
 
 const ParticipationComment = ({ student }) => {
   const comment = AverageParticipation(student)
-  return <p>{comment}</p>
+
+  return (
+    <>
+      {' '}
+      <p class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
+        {comment}
+      </p>
+      {/* <footer class="block ml-4 text-neutral-600">
+        - Attendance <cite>{student.averageAttendance} %</cite>
+      </footer> */}
+    </>
+  )
 }
 // export default function AverageParticipation(student) {
 //   const chooseAnswer = (student) => {

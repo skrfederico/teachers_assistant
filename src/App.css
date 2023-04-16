@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.report {
+  text-align: left;
+  margin-left: 2rem;
+}
 /* // */
 .allgroups {
   display: flex;
@@ -122,7 +126,7 @@
 .textP {
   margin-left: auto;
   align-content: center;
-  padding-right: 15px;
+  padding-right: 25px;
 }
 
 .textP p {

@@ -63,5 +63,16 @@ export default function AverageHwCompletion({ student }) {
       return 'Number is not between 1 and 100.'
     }
   }
-  return <p>{chooseAnswer(student)}</p>
+
+  return (
+    <>
+      {' '}
+      <p class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
+        {chooseAnswer(student)}
+      </p>
+      {/* <footer class="block ml-4 text-neutral-600">
+        - Attendance <cite>{student.averageAttendance} %</cite>
+      </footer> */}
+    </>
+  )
 }
