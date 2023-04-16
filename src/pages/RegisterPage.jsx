@@ -8,18 +8,33 @@ import { useController } from '../Controller'
 export default function RegisterPage() {
   const { id } = useParams()
 
-  const { getSingleRegister } = useController()
+  const { getSingleRegister, getSingleGroup } = useController()
 
   const [loading, setLoading] = useState(false)
   const [activeRegister, setActiveRegister] = useState({})
+  const [activeGroup, setActiveGroup] = useState({})
 
   const fetchAndLoadRegister = async () => {
     setLoading(true)
     try {
       const register = await getSingleRegister(id)
       setActiveRegister(register)
+      const groupId = activeRegister.group
       console.log('a', register)
       console.log('b', activeRegister)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  const fetchAndLoadGroup = async () => {
+    setLoading(true)
+    try {
+      const group = await getSingleGroup(activeRegister.group)
+      setActiveGroup(group)
+      console.log('a', group)
+      console.log('b', activeGroup)
     } catch (error) {
       console.error(error)
     } finally {
@@ -35,15 +50,24 @@ export default function RegisterPage() {
     console.log(activeRegister)
   }, [activeRegister])
 
-  const date = new Date('{activeRegister.date}')
-  const formattedDate = `${
-    date.getMonth() + 1
-  }/${date.getDate()}/${date.getFullYear()}`
+  useEffect(() => {
+    fetchAndLoadGroup()
+  }, [])
+
+  useEffect(() => {
+    console.log('a ver que renderea', activeGroup)
+  }, [activeGroup])
+
+  const date = new Date(activeRegister.student)
+
+  // const groupDoc = Group.findOne({ _id: activeRegister.group })
+  // const groupName = groupDoc.body
 
   return (
     <div>
       {loading && <p>loading...</p>}
       {console.log(activeRegister)}
+      {console.log(activeGroup)}
       {!loading && activeRegister && (
         <>
           <main className="profile-page">
@@ -88,35 +112,40 @@ export default function RegisterPage() {
                       </div>
                     </div>
                     <div className="text-center mt-12">
-                      {/* <h2 className="text-3xl">{activeRegister.student}</h2>
+                      <h2 className="text-3xl">{activeRegister.student}</h2>
                       <p>Group: {activeRegister.group}</p>
-                      <h4 className="text-2xl">{activeRegister.date}</h4>
-                                            <h4 className="text-2xl">{formattedDate}</h4> */}
-                      <h2 className="text-3xl">Student's name</h2>
+                      <h4 className="text-2xl">
+                        {new Date(activeRegister.date).toLocaleDateString()}
+                      </h4>
+                      {/* <h2 className="text-3xl">Student's name</h2>
                       <p>Group: group's name</p>
-                      <h4 className="text-2xl">date</h4>
+                      <h4 className="text-2xl">{activeRegister.date}</h4> */}
                     </div>
                     <div className="mt-10 py-10 border-t border-gray-300 text-center">
                       <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-9/12 px-4">
                           <div>
-                            {/* <p>
-                              Attendance: {activeRegister.attendance.toString()}
-                              Attendance: {activeRegister.attendance ?
-  <i className="fas fa-check-square"></i> :
-  <i className="fas fa-times"></i>
-}
+                            <p>
+                              {/* Attendance: {activeRegister.attendance.toString()} */}
+                              Attendance:{' '}
+                              {activeRegister.attendance ? (
+                                <i className="fas fa-check-square"></i>
+                              ) : (
+                                <i className="fas fa-times"></i>
+                              )}
                             </p>
                             <p>
+                              {/* Homework Completion:{' '}
+                              {activeRegister.hwCompletion.toString()} */}
                               Homework Completion:{' '}
-                              {activeRegister.hwCompletion.toString()}
-                              Homework Completion: {activeRegister.hwCompletion ?
-  <i className="fas fa-check-square"></i> :
-  <i className="fas fa-times"></i>
-}
+                              {activeRegister.hwCompletion ? (
+                                <i className="fas fa-check-square"></i>
+                              ) : (
+                                <i className="fas fa-times"></i>
+                              )}
                             </p>
-                            <p>Participation: {activeRegister.participation}</p> */}
-                            <p>
+                            <p>Participation: {activeRegister.participation}</p>
+                            {/* <p>
                               <strong>Attendance:</strong> true
                             </p>
                             <p>
@@ -124,7 +153,7 @@ export default function RegisterPage() {
                             </p>
                             <p>
                               <strong>Participation:</strong> X
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
