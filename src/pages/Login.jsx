@@ -1,8 +1,36 @@
 import React from 'react'
+import { useState } from 'react'
+import * as usersService from '../utilities/users-service'
 
 import FooterSmall from '../components/FooterSmall'
 
-export default function Login() {
+export default function Login({ setUser }) {
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  })
+  const [error, setError] = useState('')
+
+  // const handleChange = (evt) => {
+  function handleChange(evt) {
+    setCredentials({ ...credentials, [evt.target.name]: evt.target.value })
+    setError('')
+  }
+
+  // const handleSubmit = async (evt) => {
+  async function handleSubmit(evt) {
+    // Prevent form from being submitted to the server
+    evt.preventDefault()
+    try {
+      // The promise returned by the signUp service method
+      // will resolve to the user object included in the
+      // payload of the JSON Web Token (JWT)
+      const user = await usersService.login(credentials)
+      setUser(user)
+    } catch {
+      setError('Log In Failed - Try Again')
+    }
+  }
   return (
     <>
       <main>
@@ -31,9 +59,9 @@ export default function Login() {
                   </div>
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
-                      <small>Sign in / Sign up</small>
+                      <small>Log In </small>
                     </div>
-                    <form>
+                    <form autoComplete="off" onSubmit={handleSubmit}>
                       <div className="relative w-full mb-3">
                         <label
                           className="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -42,7 +70,11 @@ export default function Login() {
                           Email
                         </label>
                         <input
-                          type="email"
+                          type="text"
+                          name="email"
+                          value={credentials.email}
+                          onChange={handleChange}
+                          required
                           className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                           placeholder="Email"
                           style={{ transition: 'all .15s ease' }}
@@ -58,6 +90,10 @@ export default function Login() {
                         </label>
                         <input
                           type="password"
+                          name="password"
+                          value={credentials.password}
+                          onChange={handleChange}
+                          required
                           className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                           placeholder="Password"
                           style={{ transition: 'all .15s ease' }}
@@ -80,8 +116,8 @@ export default function Login() {
 
                       <div className="text-center mt-6">
                         <button
+                          type="submit"
                           className="bg-purple-500 text-white active:bg-purple-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                          type="button"
                           style={{ transition: 'all .15s ease' }}
                         >
                           Sign In
@@ -89,8 +125,9 @@ export default function Login() {
                       </div>
                     </form>
                   </div>
+                  <p className="error-message">&nbsp;{error}</p>
                 </div>
-
+                {/* WHY CAN'T WE SEE THIS? */}
                 <div className="flex flex-wrap mt-6">
                   <div className="w-1/2">
                     <a

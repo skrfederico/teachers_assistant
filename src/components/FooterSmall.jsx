@@ -1,27 +1,18 @@
 import React from 'react'
+import UserLogOut from './UserLogOut'
 
-export default function FooterSmall(props) {
+export default function FooterSmall(props, user, setUser) {
   return (
     <>
-      <footer
-        className={
-          (props.absolute
-            ? 'absolute w-full bottom-0 bg-gray-900'
-            : 'relative') + ' pb-6'
-        }
-      >
+      <footer className="w-full bottom-0 bg-gray-900">
         <div className="container mx-auto px-4">
           <hr className="mb-6 border-b-1 border-gray-700" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4">
-              <div className="text-sm text-white font-semibold py-1">
+              <div className="text-sm text-red font-semibold py-1">
                 {/* Copyright © {new Date().getFullYear()}{' '} */}
-                <a
-                  href="https://www.profede.org"
-                  className="text-white hover:text-gray-400 text-sm font-semibold py-1"
-                >
-                  Teacher's Aid
-                </a>
+                {/* <button onClick={handleLogout}>Log Out</button> */}
+                <UserLogOut user={user} setUser={setUser} />
               </div>
             </div>
             <div className="w-full md:w-8/12 px-4">

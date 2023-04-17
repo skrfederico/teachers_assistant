@@ -17,6 +17,26 @@ const EmailController = require('./backend/controllers/EmailController')
 app.use(logger('dev'))
 app.use(express.json())
 
+// // Configure both serve-favicon & static middleware
+// // to serve from the production 'build' folder
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
+// app.use(express.static(path.join(__dirname, 'build')))
+
+app.use((req, res, next) => {
+  res.locals.data = {}
+  next()
+})
+
+// Check if token and create req.user
+app.use(require('./backend/config/checkToken'))
+
+//Routes
+// Put API routes here, before the "catch all" route
+app.use('/api/users', require('./backend/controllers/userController'))
+
+// Protect the API routes below from anonymous users
+const ensureLoggedIn = require('./backend/config/ensureLoggedIn')
+
 var corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200
