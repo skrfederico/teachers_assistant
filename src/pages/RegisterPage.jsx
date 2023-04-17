@@ -8,37 +8,37 @@ import { useController } from '../Controller'
 export default function RegisterPage() {
   const { id } = useParams()
 
-  const { getSingleRegister, getSingleGroup } = useController()
+  const { getSingleRegister } = useController()
 
   const [loading, setLoading] = useState(false)
-  const [activeRegister, setActiveRegister] = useState({})
-  const [activeGroup, setActiveGroup] = useState({})
+  const [activeRegister, setActiveRegister] = useState()
 
   const fetchAndLoadRegister = async () => {
     setLoading(true)
     try {
       const register = await getSingleRegister(id)
       setActiveRegister(register)
-      const groupId = activeRegister.group
     } catch (error) {
+      alert('error en l22')
       console.error(error)
     } finally {
       setLoading(false)
     }
   }
-  const fetchAndLoadGroup = async () => {
-    setLoading(true)
-    try {
-      const group = await getSingleGroup(activeRegister.group)
-      setActiveGroup(group)
-      console.log('a', group)
-      console.log('b', activeGroup)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setLoading(false)
-    }
-  }
+  // const fetchAndLoadGroup = async () => {
+  //   setLoading(true)
+  //   try {
+  //     const group = await getSingleGroup(activeRegister.group)
+  //     setActiveGroup(group)
+  //     console.log('a', group)
+  //     console.log('b', activeGroup)
+  //     console.log('activeRegister is', activeRegister)
+  //   } catch (error) {
+  //     console.error(error)
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
 
   useEffect(() => {
     fetchAndLoadRegister()
@@ -48,24 +48,10 @@ export default function RegisterPage() {
     console.log(activeRegister)
   }, [activeRegister])
 
-  useEffect(() => {
-    fetchAndLoadGroup()
-  }, [])
-
-  useEffect(() => {
-    console.log('a ver que renderea', activeGroup)
-  }, [activeGroup])
-
-  const date = new Date(activeRegister.student)
-
-  // const groupDoc = Group.findOne({ _id: activeRegister.group })
-  // const groupName = groupDoc.body
-
   return (
     <div>
       {loading && <p>loading...</p>}
       {console.log(activeRegister)}
-      {console.log(activeGroup)}
       {!loading && activeRegister && (
         <>
           <main className="profile-page">
@@ -110,11 +96,14 @@ export default function RegisterPage() {
                       </div>
                     </div>
                     <div className="text-center mt-12">
-                      <h2 className="text-3xl">{activeRegister.student}</h2>
-                      <p>Group: {activeRegister.group}</p>
+                      <h2 className="text-3xl">
+                        {activeRegister.student.body}
+                      </h2>
+                      <p>Group: {activeRegister.group.body}</p>
                       <h4 className="text-2xl">
                         {new Date(activeRegister.date).toLocaleDateString()}
                       </h4>
+
                       {/* <h2 className="text-3xl">Student's name</h2>
                       <p>Group: group's name</p>
                       <h4 className="text-2xl">{activeRegister.date}</h4> */}

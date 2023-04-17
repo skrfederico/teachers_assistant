@@ -69,9 +69,10 @@ router.delete('/:id', async (req, res) => {
 // Read one
 router.get('/:id', async (req, res) => {
   const { id } = req.params
-
   try {
     const query = await Register.findOne({ _id: id })
+      .populate('student')
+      .populate('group')
     return res.json(query)
   } catch (error) {
     res.status(500).json({ error })

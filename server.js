@@ -51,7 +51,7 @@ app.use('/api/groups', groupController)
 app.use('/api/students', studentController)
 app.use('/api/registers', registerController)
 app.use('/api/users', userController)
-// app.use('/api/email', EmailController)
+app.use('/api/email', EmailController)
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })

@@ -1,15 +1,22 @@
 //StudentPage NEEDS WORK ON EDIT
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useController } from '../Controller'
 
 export default function StudentPage() {
   const { id } = useParams()
 
-  const { getSingleStudent, deleteStudent, updateStudent } = useController()
+  const {
+    getSingleStudent,
+    deleteStudent,
+    updateStudent,
+    getAllRegisters,
+    registers
+  } = useController()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)
+  const [registersState, setRegistersState] = useState([])
   const [activeStudent, setActiveStudent] = useState({
     _id: '',
     body: '',
@@ -25,6 +32,25 @@ export default function StudentPage() {
   const [updatedAddress, setUpdatedAddress] = useState('')
   const [updatedGroup, setUpdatedGroup] = useState('')
 
+  const fetchAndLoadRegisters = async () => {
+    setLoading(true)
+    try {
+      // const registersFromDb = await getAllRegistersByStudentId(id)
+
+      await getAllRegisters()
+      const filteredRegisters = registers.filter((regist) => {
+        console.log(regist.student)
+        if (regist.student === id) return regist
+      })
+      setRegistersState(filteredRegisters)
+      // setRegisters(registersFromDb.filter((regist) => regist.student === id))
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  console.log('registersState', registersState)
   const fetchAndLoadStudent = async () => {
     setLoading(true)
     try {
@@ -39,7 +65,9 @@ export default function StudentPage() {
 
   useEffect(() => {
     fetchAndLoadStudent()
+    fetchAndLoadRegisters()
   }, [])
+  console.log('registers line50', registers)
 
   useEffect(() => {
     if (editing && activeStudent.body) {
@@ -260,6 +288,24 @@ export default function StudentPage() {
                   </div>
                 </div>
               </div>
+            </section>
+
+            <section>
+              <h3>Registers</h3>
+              {registersState.length === 0 ? (
+                <p>No registers available</p>
+              ) : (
+                <ul>
+                  {registersState.map((register) => (
+                    <div>
+                      <Link to={'/registers/' + register._id}>
+                        {' '}
+                        {new Date(register.date).toLocaleDateString()}
+                      </Link>
+                    </div>
+                  ))}
+                </ul>
+              )}
             </section>
           </main>
         </>

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-
+import ReactDomServer from 'react-dom/server'
 import { useParams } from 'react-router-dom'
 
-import AverageAttendance from '../components/AverageAttendance'
-import AverageHwCompletion from '../components/AverageHwCompletion'
-import AverageParticipation from '../components/AverageParticipation'
-
 import { useController } from '../Controller'
+import Report from '../components/Report'
+import { sendEmail } from '../services/EmailService'
 
 export default function ReportPage() {
   const { getSingleStudent } = useController()
@@ -25,48 +23,19 @@ export default function ReportPage() {
     }
   }, [])
   const handleClick = async () => {
-    const response = await fetch('/api/email/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        receiver: 'fedeinnyc@gmail.com',
-        subject: 'Your subject',
-        message: 'Your message'
-      })
+    sendEmail(
+      'fedeinnyc@gmail',
+      `${student.body} 's report`,
+      ReactDomServer.renderToString(<Report student={student} />)
+    ).then(() => {
+      alert('Email was sent')
     })
-    const data = await response.json()
-    console.log(data)
   }
   return (
     <>
       {student && (
         <main>
-          <h1 className="text-3xl text-blue-900">{student.body}'s report</h1>
-          <section class="report">
-            <p class="text-xl font-medium text-gray-800">
-              Attendance: <strong>{student.averageAttendance} % </strong>
-            </p>
-            <p class="mt-3 text-base text-gray-600">
-              <AverageAttendance student={student} />
-            </p>
-            <br></br>
-            <p class="text-xl font-medium text-gray-800">
-              Homework completion:{' '}
-              <strong>{student.averageHwCompletion} % </strong>
-            </p>
-            <p class="mt-3 text-base text-gray-600">
-              <AverageHwCompletion student={student} />
-            </p>
-            <p class="text-xl font-medium text-gray-800">
-              <br></br>
-              Participation: <strong>{student.averageParticipation}</strong>
-            </p>
-            <p class="mt-3 text-base text-gray-600">
-              <AverageParticipation student={student} />
-            </p>
-          </section>
+          <Report student={student} />
 
           <button
             onClick={handleClick}
