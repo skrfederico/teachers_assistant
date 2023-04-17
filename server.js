@@ -7,6 +7,7 @@ const logger = require('morgan')
 const groupController = require('./backend/controllers/groupController')
 const studentController = require('./backend/controllers/studentController')
 const registerController = require('./backend/controllers/registerController')
+const userController = require('./backend/controllers/userController')
 
 require('./backend/config/database')
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use('/api/groups', groupController)
 app.use('/api/students', studentController)
 app.use('/api/registers', registerController)
+app.use('/api/users', userController)
 // app.use('/api/email', EmailController)
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
