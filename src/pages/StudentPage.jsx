@@ -86,6 +86,7 @@ export default function StudentPage() {
 
   const handleDelete = () => {
     deleteStudent(activeStudent._id)
+    window.history.back()
   }
 
   const handleEditToggle = () => {

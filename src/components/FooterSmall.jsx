@@ -12,7 +12,7 @@ export default function FooterSmall(props, user, setUser) {
               <div className="text-sm text-red font-semibold py-1">
                 {/* Copyright © {new Date().getFullYear()}{' '} */}
                 {/* <button onClick={handleLogout}>Log Out</button> */}
-                <UserLogOut user={user} setUser={setUser} />
+                <UserLogOut setUser={setUser} />
               </div>
             </div>
             <div className="w-full md:w-8/12 px-4">

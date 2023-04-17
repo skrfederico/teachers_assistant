@@ -120,6 +120,7 @@ export default function SingleGroup() {
 
   const handleDelete = () => {
     deleteGroup(activeGroup._id)
+    window.location.href = 'http://localhost:3000/'
   }
 
   const handleEditToggle = () => {

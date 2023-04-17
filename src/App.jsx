@@ -33,7 +33,7 @@ function App() {
               <Route path="/report/:id" element={<ReportPage />} />
               <Route path="/registers/:id" element={<RegisterPage />} />
             </Routes>
-            <FooterSmall />
+            <FooterSmall user={user} setUser={setUser} />
           </>
         ) : (
           <AuthPage setUser={setUser} />
