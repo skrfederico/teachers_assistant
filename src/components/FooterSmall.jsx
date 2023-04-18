@@ -19,7 +19,7 @@ export default function FooterSmall(props, user, setUser) {
                   <button
                     onClick={() => window.history.back()}
                     // style={{ display: 'flex-end' }}
-                    class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   >
                     Back
                   </button>{' '}

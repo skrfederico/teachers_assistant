@@ -1,6 +1,5 @@
 import React from 'react'
 
-// // hwCompletion
 // // CASE 1 (0-20%):
 const hwAns1 = (student) => {
   return [
@@ -45,19 +44,19 @@ export default function AverageHwCompletion({ student }) {
   const chooseAnswer = (student) => {
     const num = student.averageHwCompletion
     if (num >= 1 && num <= 20) {
-      const answers = hwAns1(student)
+      let answers = hwAns1(student)
       return (answers = [Math.floor(Math.random() * answers.length)])
     } else if (num >= 21 && num <= 40) {
-      const answers = hwAns2(student)
+      let answers = hwAns2(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 41 && num <= 60) {
-      const answers = hwAns3(student)
+      let answers = hwAns3(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 61 && num <= 80) {
-      const answers = hwAns4(student)
+      let answers = hwAns4(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 81 && num <= 100) {
-      const answers = hwAns5(student)
+      let answers = hwAns5(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else {
       return 'Number is not between 1 and 100.'
@@ -65,7 +64,7 @@ export default function AverageHwCompletion({ student }) {
   }
 
   return (
-    <>
+    <div>
       {' '}
       <p class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
         {chooseAnswer(student)}
@@ -73,6 +72,6 @@ export default function AverageHwCompletion({ student }) {
       {/* <footer class="block ml-4 text-neutral-600">
         - Attendance <cite>{student.averageAttendance} %</cite>
       </footer> */}
-    </>
+    </div>
   )
 }

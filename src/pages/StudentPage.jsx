@@ -1,8 +1,7 @@
-//StudentPage NEEDS WORK ON EDIT
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useController } from '../Controller'
-// import teamImage from '../assets/img/team-2-800x800.jpeg'
+import defaultImage from '../assets/img/default.jpeg'
 
 export default function StudentPage() {
   const { id } = useParams()
@@ -43,7 +42,10 @@ export default function StudentPage() {
       await getAllRegisters()
       const filteredRegisters = registers.filter((regist) => {
         console.log(regist.student)
-        if (regist.student === id) return regist
+        if (regist.student === id) {
+          return regist
+        }
+        return null
       })
       setRegistersState(filteredRegisters)
       // setRegisters(registersFromDb.filter((regist) => regist.student === id))
@@ -54,6 +56,7 @@ export default function StudentPage() {
     }
   }
   console.log('registersState', registersState)
+
   const fetchAndLoadStudent = async () => {
     setLoading(true)
     try {
@@ -131,9 +134,7 @@ export default function StudentPage() {
     }
     setEditing((prev) => !prev)
   }
-  const imageUrl = activeStudent.imgUrl || 'src/assets/img/default.jpeg'
-  // const imageUrl = `${activeStudent.imgUrl}`
-  // 'https://static.generated.photos/vue-static/home/hero/3.png'
+  const imageUrl = activeStudent.imgUrl || defaultImage
 
   return (
     <div>
@@ -188,7 +189,6 @@ export default function StudentPage() {
                               imageUrl
                                 ? imageUrl
                                 : 'src/assets/img/default.jpeg'
-                              //  'https://conceptwindows.com.au/wp-content/uploads/no-profile-pic-icon-27-300x279.png'
                             }
                             className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                             style={{ maxWidth: '150px' }}
@@ -275,7 +275,6 @@ export default function StudentPage() {
   */}
                             <button
                               onClick={handleEditToggle}
-                              // style={{ display: 'flex-end' }}
                               className="bg-purple-500 text-white active:bg-purple-600 mt-4 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
@@ -283,7 +282,6 @@ export default function StudentPage() {
                             </button>{' '}
                             <button
                               onClick={handleDelete}
-                              // style={{ display: 'flex-end' }}
                               className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
@@ -302,7 +300,6 @@ export default function StudentPage() {
                             </p>
                             <button
                               onClick={handleEditToggle}
-                              // style={{ display: 'flex-end' }}
                               className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
@@ -310,7 +307,6 @@ export default function StudentPage() {
                             </button>{' '}
                             <button
                               onClick={handleDelete}
-                              // style={{ display: 'flex-end' }}
                               className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
@@ -326,18 +322,17 @@ export default function StudentPage() {
             </section>
 
             <section>
-              <h3>Registers</h3>
+              <h3 class="font-bold italic">Registers</h3>
               {registersState.length === 0 ? (
                 <p>No registers available</p>
               ) : (
                 <ul>
                   {registersState.map((register) => (
-                    <div>
-                      <Link to={'/registers/' + register._id}>
-                        {' '}
+                    <li key={register._id}>
+                      <Link to={`/registers/${register._id}`}>
                         {new Date(register.date).toLocaleDateString()}
                       </Link>
-                    </div>
+                    </li>
                   ))}
                 </ul>
               )}

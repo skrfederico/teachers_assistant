@@ -1,5 +1,5 @@
 import React from 'react'
-// Attendance
+
 const attAns1 = (student) => {
   return [
     `For students with attendance percentages in the 0-20% range, it is crucial to improve attendance immediately. Consistent attendance is necessary for success in class and missing too many classes can lead to missed learning opportunities and a lower grade. We strongly encourage these students to make attendance a top priority going forward.`,
@@ -32,37 +32,35 @@ const attAns5 = (student) => {
 }
 
 export default function AverageAttendance({ student }) {
-  console.log('this is student', student)
   const chooseAnswer = (student) => {
     const num = student.averageAttendance
     if (num >= 1 && num <= 20) {
-      const answers = attAns1(student)
+      let answers = attAns1(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 21 && num <= 40) {
-      const answers = attAns2(student)
+      let answers = attAns2(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 41 && num <= 60) {
-      const answers = attAns3(student)
+      let answers = attAns3(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 61 && num <= 80) {
-      const answers = attAns4(student)
+      let answers = attAns4(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else if (num >= 81 && num <= 100) {
-      const answers = attAns5(student)
+      let answers = attAns5(student)
       return answers[Math.floor(Math.random() * answers.length)]
     } else {
       return 'Number is not between 1 and 100.'
     }
   }
   return (
-    <>
-      {' '}
-      <p className="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
-        {chooseAnswer(student)}
-      </p>
-      {/* <footer class="block ml-4 text-neutral-600">
-        - Attendance <cite>{student.averageAttendance} %</cite>
-      </footer> */}
-    </>
+    <div>
+      <>
+        {' '}
+        <p className="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
+          {chooseAnswer(student)}
+        </p>
+      </>
+    </div>
   )
 }

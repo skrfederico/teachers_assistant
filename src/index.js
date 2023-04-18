@@ -1,16 +1,18 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
+
 import { BrowserRouter as Router } from 'react-router-dom'
-// import { Route, Switch, Redirect } from 'react-router-dom'
 
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import Login from './pages/Login'
+// import Login from './pages/Login'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+// const root = ReactDOM.createRoot(document.getElementById('root'))
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
 root.render(
   <React.StrictMode>
     {/* <Router path="/login" component={Login}> */}
@@ -18,8 +20,8 @@ root.render(
       <App />
       {/* <Login /> */}
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
+  // document.getElementById('root')
 )
 
 // const root = ReactDOM.createRoot(document.getElementById('root'))

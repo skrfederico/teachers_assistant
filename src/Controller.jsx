@@ -216,7 +216,6 @@ function useHook() {
     try {
       const results3 = await registerService.getAllRegisters()
       setRegisters(results3)
-      console.log(results3)
       console.log('The registers are:', results3)
     } catch (error) {
       console.error(error)
@@ -225,7 +224,9 @@ function useHook() {
 
   async function getAllRegistersByStudentId(id) {
     await getAllRegisters()
-    const filteredRegisters = registers.filter((regist) => regist.student == id)
+    const filteredRegisters = registers.filter(
+      (regist) => regist.student === id
+    )
     // setRegisters(filteredRegisters)
     return filteredRegisters
   }
