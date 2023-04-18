@@ -4,26 +4,25 @@ import UserLogOut from './UserLogOut'
 export default function FooterSmall(props, user, setUser) {
   return (
     <>
-      <footer className="w-full bottom-0 bg-gray-900">
+      <footer className="w-full bottom-0 bg-zinc-500">
         <div className="container mx-auto px-4">
           <hr className="mb-6 border-b-1 border-gray-700" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4">
-              <div className="text-sm text-red font-semibold py-1">
-                {/* Copyright © {new Date().getFullYear()}{' '} */}
-                {/* <button onClick={handleLogout}>Log Out</button> */}
-                <UserLogOut setUser={setUser} />
-              </div>
+              <UserLogOut setUser={setUser} />
+
+              <div className="text-sm text-red font-semibold py-1"></div>
             </div>
             <div className="w-full md:w-8/12 px-4">
               <ul className="flex flex-wrap list-none md:justify-end  justify-center">
                 <li>
                   <button
                     onClick={() => window.history.back()}
-                    className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
+                    // style={{ display: 'flex-end' }}
+                    class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   >
                     Back
-                  </button>
+                  </button>{' '}
                 </li>
               </ul>
             </div>

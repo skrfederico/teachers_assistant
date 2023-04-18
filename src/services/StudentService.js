@@ -35,12 +35,13 @@ class StudentService {
     return await this.instance.delete(`/${id}`)
   }
 
-  async updateStudent(id, student, email, telephone, address, groupId) {
+  async updateStudent(id, student, email, telephone, address, imgUrl, groupId) {
     const { data } = await this.instance.put(`/${id}`, {
       body: student,
       email: email,
       telephone: telephone,
       address: address,
+      imgUrl: imgUrl,
       group: groupId
     })
     return data

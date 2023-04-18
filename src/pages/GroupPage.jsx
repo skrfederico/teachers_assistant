@@ -192,14 +192,15 @@ export default function SingleGroup() {
                                   {!editing && (
                                     <div className="flex flex-wrap justify-center">
                                       <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-                                        <div className="bg-white rounded-lg shadow-lg p-6">
+                                        <div className="bg-white rounded-lg shadow-lg p-6 border border-solid">
                                           <span className="font-bold text-2xl text-blueGray-700">
                                             {activeGroup.category}
                                           </span>
                                           <h5 className="text-4xl font-bold mb-2">
                                             {activeGroup.body}
                                           </h5>
-                                          <div className="flex items-center mb-4">
+                                          {/* <div className="flex items-center mb-4 "> */}
+                                          <div className="flex items-center justify-center mb-4">
                                             {activeGroup.category ===
                                             'children' ? (
                                               <div className="text-white text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-red-500 mr-4">
@@ -226,13 +227,17 @@ export default function SingleGroup() {
                                                 <i className="far fa-chart-bar"></i>
                                               </div>
                                             )}
-                                            <div className="flex flex-col">
-                                              <p className="text-sm text-blueGray-400">
-                                                Classes on: {activeGroup.days}
-                                              </p>
-                                              <p className="text-sm text-blueGray-400">
-                                                at: {activeGroup.institution}
-                                              </p>
+                                            <div className="flex justify-center items-center">
+                                              <div className="flex flex-col">
+                                                <p className="text-sm text-blueGray-400">
+                                                  <strong> classes on: </strong>
+                                                  {activeGroup.days}
+                                                </p>
+                                                <p className="text-sm text-blueGray-400">
+                                                  <strong> at: </strong>
+                                                  {activeGroup.institution}
+                                                </p>
+                                              </div>
                                             </div>
                                           </div>
                                           <p className="text-sm text-blueGray-400">
@@ -326,60 +331,30 @@ export default function SingleGroup() {
                                 </>
                                 <div class="flex flex-wrap py-2">
                                   <div class="w-full px-4">
-                                    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-zinc-500 rounded">
-                                      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-                                        <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-                                          <a
-                                            class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-                                            onClick={() =>
-                                              setShowRateForm((prev) => !prev)
-                                            }
-                                          >
-                                            {showRateForm
-                                              ? 'Close'
-                                              : 'Rate Students'}{' '}
-                                          </a>
-                                          {/* <RateModal /> */}
-                                          <button
-                                            class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                                            type="button"
-                                          >
-                                            <span class="block relative w-6 h-px rounded-sm bg-white"></span>
-                                            <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-                                            <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-                                          </button>
-                                        </div>
-                                        <div
-                                          class="flex lg:flex-grow items-center"
-                                          id="example-navbar-info"
+                                    <nav class="flex items-center justify-between bg-zinc-500 rounded-lg px-4 py-3">
+                                      <button
+                                        class="flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75"
+                                        onClick={() =>
+                                          setShowRateForm((prev) => !prev)
+                                        }
+                                      >
+                                        {showRateForm
+                                          ? 'Close'
+                                          : 'Rate Students'}
+                                      </button>
+                                      <div class="flex items-center">
+                                        <button
+                                          class="flex items-center text-white font-bold text-xs mr-2 py-1 px-3 rounded-lg hover:opacity-75"
+                                          onClick={handleEditToggle}
                                         >
-                                          <ul class="flex flex-row list-none ml-auto">
-                                            <li class="nav-item">
-                                              <button
-                                                class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                                onClick={handleEditToggle}
-                                              >
-                                                {editing ? 'Save' : 'Edit'}
-                                              </button>
-                                            </li>
-                                            {/* <li class="nav-item">
-                      <a
-                        class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                        onClick={() => setShowRateForm((prev) => !prev)}
-                      >
-                        {showRateForm ? 'Close' : 'Rate Students'}
-                      </a>
-                    </li> */}
-                                            <li class="nav-item">
-                                              <a
-                                                class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                                onClick={handleDelete}
-                                              >
-                                                Delete
-                                              </a>
-                                            </li>
-                                          </ul>
-                                        </div>
+                                          {editing ? 'Save' : 'Edit'}
+                                        </button>
+                                        <a
+                                          class="flex items-center text-white font-bold text-xs py-1 px-3 rounded-lg hover:opacity-75"
+                                          onClick={handleDelete}
+                                        >
+                                          Delete
+                                        </a>
                                       </div>
                                     </nav>
                                   </div>

@@ -9,6 +9,7 @@ const studentSchema = new mongoose.Schema({
   email: { type: String },
   telephone: { type: String },
   address: { type: String },
+  imgUrl: { type: String },
   group: { type: mongoose.Schema.Types.ObjectId, ref: 'Group' }
 })
 // console.log(studentSchema.createdAt)

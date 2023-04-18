@@ -95,7 +95,8 @@ const addRegistersToStudent = async (student) => {
       registers.length > 0 ? averageParticipation(registers) : 'C',
     address: student.address,
     telephone: student.telephone,
-    email: student.email
+    email: student.email,
+    imgUrl: student.imgUrl
   }
 }
 
