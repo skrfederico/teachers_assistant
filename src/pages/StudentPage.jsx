@@ -176,12 +176,12 @@ export default function StudentPage() {
             </section>
 
             <section className="relative py-16 bg-gray-300">
-              <div class="container mx-auto px-4">
-                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
-                  <div class="px-6">
-                    <div class="flex flex-wrap justify-center">
-                      <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center items-center">
-                        <div class="h-auto">
+              <div className="container mx-auto px-4">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+                  <div className="px-6">
+                    <div className="flex flex-wrap justify-center">
+                      <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center items-center">
+                        <div className="h-auto">
                           <img
                             alt="..."
                             src={
@@ -216,7 +216,7 @@ export default function StudentPage() {
                                 style={{ width: 300 }}
                                 value={updatedBody}
                                 onChange={handleEditForm}
-                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                               />
                             </label>
                             <br />
@@ -229,7 +229,7 @@ export default function StudentPage() {
                                 style={{ width: 300 }}
                                 value={updatedEmail}
                                 onChange={handleEditForm}
-                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                               />
                             </label>
                             <br />
@@ -241,7 +241,7 @@ export default function StudentPage() {
                                 style={{ width: 300 }}
                                 value={updatedTelephone}
                                 onChange={handleEditForm}
-                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                               />
                             </label>
                             <br />
@@ -253,7 +253,7 @@ export default function StudentPage() {
                                 style={{ width: 300 }}
                                 value={updatedAddress}
                                 onChange={handleEditForm}
-                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                               />
                             </label>
                             <br />
@@ -265,7 +265,7 @@ export default function StudentPage() {
                                 style={{ width: 300 }}
                                 value={updatedImgUrl}
                                 onChange={handleEditForm}
-                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                                className="mt-1 ml-2 mb-1 px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                               />
                             </label>
                             <br />
@@ -284,7 +284,7 @@ export default function StudentPage() {
                             <button
                               onClick={handleDelete}
                               // style={{ display: 'flex-end' }}
-                              class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
                               Delete
@@ -303,7 +303,7 @@ export default function StudentPage() {
                             <button
                               onClick={handleEditToggle}
                               // style={{ display: 'flex-end' }}
-                              class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
                               {editing ? 'Save' : 'Edit'}
@@ -311,7 +311,7 @@ export default function StudentPage() {
                             <button
                               onClick={handleDelete}
                               // style={{ display: 'flex-end' }}
-                              class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                               type="button"
                             >
                               Delete

@@ -132,15 +132,6 @@ export default function RegisterPage() {
                               )}
                             </p>
                             <p>Participation: {activeRegister.participation}</p>
-                            {/* <p>
-                              <strong>Attendance:</strong> true
-                            </p>
-                            <p>
-                              <strong>Homework completion:</strong> false{' '}
-                            </p>
-                            <p>
-                              <strong>Participation:</strong> X
-                            </p> */}
                           </div>
                         </div>
                       </div>

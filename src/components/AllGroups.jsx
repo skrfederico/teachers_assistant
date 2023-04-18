@@ -11,20 +11,6 @@ export default function AllGroups() {
     }
   }, [])
 
-  // const handleDelete = (event, id) => {
-  //   event.preventDefault()
-  //   deleteGroup(id)
-  // }
-
-  // <FontAwesomeIcon icon="fa-thin fa-school" />
-  //  <FontAwesomeIcon icon="fa-regular fa-children" />
-  {
-    /* <FontAwesomeIcon icon="fa-duotone fa-face-sunglasses" /> */
-  }
-  {
-    /* <FontAwesomeIcon icon="fa-sharp fa-regular fa-user-group" /> */
-  }
-
   return (
     <div className="allgroups">
       {groups.length < 1 && <p>You have no groups!</p>}
@@ -37,7 +23,6 @@ export default function AllGroups() {
                   <div
                     className="relative flex flex-col min-w-0 break-words bg-red rounded mb-6 xl:mb-0 shadow-custom"
                     key={group._id}
-                    // className="single"
                   >
                     <div className="text">
                       <div className="textBody">

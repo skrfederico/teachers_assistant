@@ -85,30 +85,30 @@ export const RateStudentForm = ({ student, onClick }) => {
       </h2>
       <form onSubmit={handleOnSubmit}>
         <div>
-          <label class="inline-flex items-center">
-            <span class="italic mr-2">Attendance :</span>
+          <label className="inline-flex items-center">
+            <span className="italic mr-2">Attendance :</span>
             <input
               type="checkbox"
               name="attendance"
-              class="form-checkbox h-5 w-5 text-gray-600"
+              className="form-checkbox h-5 w-5 text-gray-600"
               onChange={handleOnChange}
             />
           </label>
         </div>
         <div>
-          <label class="inline-flex items-center">
-            <span class="italic mr-2">Homework Completion :</span>
+          <label className="inline-flex items-center">
+            <span className="italic mr-2">Homework Completion :</span>
             <input
               type="checkbox"
               name="hwCompletion"
-              class="form-checkbox h-5 w-5 text-gray-600"
+              className="form-checkbox h-5 w-5 text-gray-600"
               onChange={handleOnChange}
             />
           </label>
         </div>
         <div>
           <SelectInput
-            label={<span class="italic mr-2">Participation:</span>}
+            label={<span className="italic mr-2">Participation:</span>}
             name="participation"
             defaultD={defaultD}
             onChange={handleOnChange}
