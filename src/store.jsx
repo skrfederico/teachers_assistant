@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import groupService from './services/GroupService'
 
@@ -24,6 +24,9 @@ const useGroupsStore = create(
     }
   }))
 )
+
+// // ZuStand challenging (read documentation)
+// useGroupsStore().getState
 
 export default useGroupsStore
 
