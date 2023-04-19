@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 // this is gonna make the api request to our backend
 // (CORE ACTION) above //// local below
-import { useController } from '../Controller'
 
+// import { useController } from '../Controller'
+import useGroupsStore from '../store'
+
+// before Zustand
 export default function CreateGroup() {
-  const { createGroup } = useController()
+  // // before ZuStand
+  // const { createGroup } = useController()
+
+  //with ZuStand
+  const { addGroup } = useGroupsStore()
 
   const [input, setInput] = useState('')
 
@@ -13,7 +20,8 @@ export default function CreateGroup() {
   }
 
   const handleSubmit = () => {
-    createGroup(input)
+    // createGroup(input)
+    addGroup(input)
     setInput('')
   }
 
