@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react'
-import { useController } from '../Controller'
+// import { useController } from '../Controller'
+import { useGroupsStore } from '../store'
 
 export default function AllGroups() {
-  const { getAllGroups, getAllRegisters, deleteGroup, groups } = useController()
-
-  useEffect(() => {
-    if (groups.length >= 1) {
-      getAllGroups()
-      getAllRegisters()
-    }
-  }, [])
+  // const { getAllGroups, getAllRegisters, deleteGroup, groups } = useController()
+  const { deleteGroup, groups } = useGroupsStore()
 
   return (
     <div className="allgroups">

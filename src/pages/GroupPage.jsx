@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useController } from '../Controller'
+// import { useController } from '../'
+import { useGroupsStore } from '../store'
 
 import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
@@ -16,7 +17,6 @@ import {
 
 export default function SingleGroup() {
   const { id } = useParams()
-
   const {
     getSingleGroup,
     deleteGroup,
@@ -24,7 +24,15 @@ export default function SingleGroup() {
     students,
     groupId,
     registers
-  } = useController()
+  } = useGroupsStore()
+  // const {
+  //   getSingleGroup,
+  //   deleteGroup,
+  //   updateGroup,
+  //   students,
+  //   groupId,
+  //   registers
+  // } = useController()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)

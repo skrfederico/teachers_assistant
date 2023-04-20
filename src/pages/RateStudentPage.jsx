@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useController } from '../Controller'
+// import { useController } from '../Controller'
+import { useGroupsStore } from '../store'
 
 // import Register from '../models/Register'
 import AllStudents from '../components/AllStudents/AllStudents'
@@ -8,7 +9,8 @@ import AllStudents from '../components/AllStudents/AllStudents'
 export default function RateStudentPage() {
   const { id } = useParams()
 
-  const { getSingleGroup } = useController()
+  // const { getSingleGroup } = useController()
+  const { getSingleGroup } = useGroupsStore()
 
   const [loading, setLoading] = useState(false)
   const [group, setGroup] = useState(null)

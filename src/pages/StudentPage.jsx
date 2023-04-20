@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useController } from '../Controller'
+import { useStudentsStore } from '../store'
 import defaultImage from '../assets/img/default.jpeg'
 
 export default function StudentPage() {
@@ -12,7 +12,7 @@ export default function StudentPage() {
     updateStudent,
     getAllRegisters,
     registers
-  } = useController()
+  } = useStudentsStore()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)

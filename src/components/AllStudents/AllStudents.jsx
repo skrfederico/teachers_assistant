@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { useController } from '../../Controller'
+import { useStudentsStore } from '../../store'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './AllStudents.css'
 
 export default function AllStudents() {
-  const { getAllStudents, deleteStudent, students } = useController()
+  const { getAllStudents, deleteStudent, students } = useStudentsStore()
   const { id } = useParams()
 
   useEffect(() => {

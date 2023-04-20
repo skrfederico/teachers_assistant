@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 // (CORE ACTION) above //// local below
 
 // import { useController } from '../Controller'
-import useGroupsStore from '../store'
+import { useGroupsStore } from '../store'
 
 // before Zustand
 export default function CreateGroup() {
@@ -11,7 +11,7 @@ export default function CreateGroup() {
   // const { createGroup } = useController()
 
   //with ZuStand
-  const { addGroup } = useGroupsStore()
+  const { createGroup } = useGroupsStore()
 
   const [input, setInput] = useState('')
 
@@ -20,8 +20,7 @@ export default function CreateGroup() {
   }
 
   const handleSubmit = () => {
-    // createGroup(input)
-    addGroup(input)
+    createGroup(input)
     setInput('')
   }
 

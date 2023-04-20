@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ReactDomServer from 'react-dom/server'
 import { useParams } from 'react-router-dom'
 
-import { useController } from '../Controller'
+import { useStudentsStore } from '../store'
 import Report from '../components/Report'
 import { sendEmail } from '../services/EmailService'
 
 export default function ReportPage() {
-  const { getSingleStudent } = useController()
+  const { getSingleStudent } = useStudentsStore()
   const { id } = useParams()
 
   const [student, setStudent] = useState()
