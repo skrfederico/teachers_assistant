@@ -7,6 +7,11 @@ import groupService from './services/GroupService'
 import studentService from './services/StudentService'
 import registerService from './services/RegisterService'
 
+export const useRateButtonStore = create((set) => ({
+  isPressed: false,
+  toggleRateButton: () => set((state) => ({ isPressed: !state.isPressed }))
+}))
+
 export const useGroupsStore = create((set) => ({
   groups: [],
   setGroups: (groups) => set({ groups }),

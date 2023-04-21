@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useStudentsStore } from '../store'
+import React, { useState, useEffect } from 'react'
+import { useStudentsStore, useRateButtonStore } from '../store'
 import { useParams } from 'react-router-dom'
 import { RateStudentForm } from './RateStudent/RateStudentForm'
 // import { RateModal } from './RateModal'
@@ -15,8 +15,13 @@ export default function RateStudents({ toggleRateForm }) {
   //TODO: enviar al controlador como metodo getStudentsByGroup
   const filteredStudents = students.filter((student) => student.group === id)
 
-  const { currentIndex, hasNextStudent, nextStudent } =
+  const { currentIndex, hasNextStudent, nextStudent, position } =
     useRateStudents(filteredStudents)
+
+  useEffect(() => {
+    if (!hasNextStudent()) toggleRateForm()
+  }, [position])
+
   return (
     <div className="allstudents">
       <div className="bottomContainer">

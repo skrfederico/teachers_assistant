@@ -28,6 +28,7 @@ export const useRateStudents = (students = []) => {
   return {
     currentIndex,
     nextStudent,
-    hasNextStudent
+    hasNextStudent,
+    position
   }
 }

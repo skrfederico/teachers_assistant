@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGroupsStore, useStudentsStore } from '../store'
+import { useGroupsStore, useStudentsStore, useRateButtonStore } from '../store'
 
 import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
@@ -36,10 +36,12 @@ export default function SingleGroup() {
   const [updatedCategory, setUpdatedCategory] = useState('')
   const [updatedInstitution, setUpdatedInstitution] = useState('')
   const [updatedDays, setUpdatedDays] = useState('')
-  const [showRateForm, setShowRateForm] = useState(false)
+
+  const { toggleRateButton, isPressed } = useRateButtonStore()
 
   const toggleRateForm = () => {
-    setShowRateForm(!showRateForm)
+    toggleRateButton()
+    console.log('is pressed', isPressed)
   }
 
   const fetchAndLoadGroup = async () => {
@@ -332,13 +334,12 @@ export default function SingleGroup() {
                                   <div className="w-full px-4">
                                     <nav className="flex items-center justify-between bg-zinc-500 rounded-lg px-4 py-3">
                                       <button
-                                        className="flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75"
+                                        className={`${
+                                          isPressed
+                                            ? ' bg-zinc-900 '
+                                            : '  bg-zinc-500 '
+                                        }flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75`}
                                         onClick={toggleRateForm}
-                                        style={{
-                                          display: !showRateForm
-                                            ? 'block'
-                                            : 'none'
-                                        }}
                                       >
                                         Rate Students
                                       </button>
@@ -359,7 +360,7 @@ export default function SingleGroup() {
                                     </nav>
                                   </div>
                                 </div>
-                                {showRateForm && (
+                                {isPressed && (
                                   <RateStudents
                                     students={students}
                                     groupId={groupId}
