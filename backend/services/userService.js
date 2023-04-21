@@ -10,31 +10,41 @@ const checkToken = (req, res) => {
 const dataController = {
   async create(req, res, next) {
     try {
-      console.log('the created req.body', req.body)
-      console.log('this is req.body', req.body)
+      // body need => { name, email, password }
+      console.log(-'the created req.body', req.body)
       const user = await User.create(req.body)
       //taken is a string
+
       const token = createJWT(user)
       // send back the token as a string
       // which we need to account for in the client
       res.locals.data.user = user
       res.locals.data.token = token
-      // console.log('trying to create user in users.js')
+      console.log('trying to create user in users.js')
       next()
     } catch (error) {
+      console.error(error)
       res.status(400).json(error)
     }
   },
   async login(req, res, next) {
     try {
+      // body need => { email, password }
       const user = await User.findOne({ email: req.body.email })
-      if (!user) throw new Error()
+      if (!user) {
+        res.status(400).json('User not found')
+        return
+      }
       const match = await bcrypt.compare(req.body.password, user.password)
-      if (!match) throw new Error()
+      if (!match) {
+        res.status(400).json('Bad Credentials')
+        return
+      }
       res.locals.data.user = user
       res.locals.data.token = createJWT(user)
       next()
     } catch (error) {
+      await User.deleteOne({ email: req.body.email }) // delete the user if they exist
       res.status(400).json('Bad Credentials')
     }
   }
@@ -58,7 +68,7 @@ function createJWT(user) {
   return jwt.sign(
     //data payload
     { user },
-    process.env.SECRET,
+    process.env.SECRET ?? 'a secret word shh',
     { expiresIn: '24h' }
   )
 }

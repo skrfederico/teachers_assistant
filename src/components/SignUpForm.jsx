@@ -26,6 +26,7 @@ export default class SignUpForm extends Component {
     evt.preventDefault()
     try {
       const formData = { ...this.state }
+      console.log(formData)
       delete formData.error
       delete formData.confirm
       const user = await signUp(formData)

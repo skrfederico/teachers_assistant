@@ -4,7 +4,12 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import registerService from '../../services/RegisterService'
 
-export const RateStudentForm = ({ student, onClick }) => {
+export const RateStudentForm = ({
+  student,
+  toggleRateForm,
+  hasNextStudent,
+  nextStudent
+}) => {
   const { id } = useParams()
   const defaultD = 'D'
   const [rateForm, setRateForm] = useState({
@@ -42,19 +47,12 @@ export const RateStudentForm = ({ student, onClick }) => {
         participation: rateForm.participation
       })
       .then((register) => {
-        alert('registro creado ' + register)
-        console.log(register)
-        // ocultar boton submit
+        if (hasNextStudent()) nextStudent()
+        else {
+          toggleRateForm()
+          alert('all registers complete')
+        }
       })
-    // .catch((err) => {
-    //   alert('algo salio mal')
-    //   console.error(err.message)
-    // })
-
-    // registers.save(student, group, rateForm.attendance === 'on')
-    console.table(rateForm)
-    // document.getElementById('button'+student.id).style.display = 'none'
-    alert('registro de alumno: ' + student.body)
   }
 
   //ALTERNATIVE HANDLEONSUBMIT

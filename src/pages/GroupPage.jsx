@@ -38,6 +38,10 @@ export default function SingleGroup() {
   const [updatedDays, setUpdatedDays] = useState('')
   const [showRateForm, setShowRateForm] = useState(false)
 
+  const toggleRateForm = () => {
+    setShowRateForm(!showRateForm)
+  }
+
   const fetchAndLoadGroup = async () => {
     setLoading(true)
     try {
@@ -54,15 +58,15 @@ export default function SingleGroup() {
     fetchAndLoadGroup()
   }, [])
 
-  useEffect(() => {
-    if (editing && activeGroup.body) {
-      setUpdatedBody(activeGroup.body)
-      setUpdatedCompleted(activeGroup.completed)
-      setUpdatedCategory(activeGroup.category)
-      setUpdatedInstitution(activeGroup.institution)
-      setUpdatedDays(activeGroup.days)
-    }
-  }, [editing, activeGroup])
+  // useEffect(() => {
+  //   if (editing && activeGroup.body) {
+  //     setUpdatedBody(activeGroup.body)
+  //     setUpdatedCompleted(activeGroup.completed)
+  //     setUpdatedCategory(activeGroup.category)
+  //     setUpdatedInstitution(activeGroup.institution)
+  //     setUpdatedDays(activeGroup.days)
+  //   }
+  // }, [editing, activeGroup])
   // }, [])
 
   const updateGroupAndRefresh = async () => {
@@ -329,13 +333,14 @@ export default function SingleGroup() {
                                     <nav className="flex items-center justify-between bg-zinc-500 rounded-lg px-4 py-3">
                                       <button
                                         className="flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75"
-                                        onClick={() =>
-                                          setShowRateForm((prev) => !prev)
-                                        }
+                                        onClick={toggleRateForm}
+                                        style={{
+                                          display: !showRateForm
+                                            ? 'block'
+                                            : 'none'
+                                        }}
                                       >
-                                        {showRateForm
-                                          ? 'Close'
-                                          : 'Rate Students'}
+                                        Rate Students
                                       </button>
                                       <div className="flex items-center">
                                         <button
@@ -359,6 +364,7 @@ export default function SingleGroup() {
                                     students={students}
                                     groupId={groupId}
                                     registers={registers}
+                                    toggleRateForm={toggleRateForm}
                                   />
                                 )}
                                 <div className="studentsGrid">

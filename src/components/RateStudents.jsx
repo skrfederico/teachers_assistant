@@ -6,7 +6,7 @@ import { RateStudentForm } from './RateStudent/RateStudentForm'
 import { useRateStudents } from './RateStudent/RateStudents.hook'
 
 // export default function RateStudents({ students, groupId, registers }) {
-export default function RateStudents() {
+export default function RateStudents({ toggleRateForm }) {
   const { getAllStudents, deleteStudent, students } = useStudentsStore()
   const { id } = useParams()
 
@@ -15,7 +15,7 @@ export default function RateStudents() {
   //TODO: enviar al controlador como metodo getStudentsByGroup
   const filteredStudents = students.filter((student) => student.group === id)
 
-  const { currentIndexStudent, hasNextStudent, nextStudent } =
+  const { currentIndex, hasNextStudent, nextStudent } =
     useRateStudents(filteredStudents)
   return (
     <div className="allstudents">
@@ -32,23 +32,15 @@ export default function RateStudents() {
                   borderRadius: '5px',
                   margin: '8px',
                   padding: '8px',
-                  display:
-                    currentIndexStudent === students.indexOf(student)
-                      ? 'block'
-                      : 'none'
+                  display: currentIndex() === student._id ? 'block' : 'none'
                 }}
               >
-                <RateStudentForm student={student} />
-                {/* <RateModal student={student} /> */}
-                {hasNextStudent() && (
-                  <button
-                    onClick={nextStudent}
-                    className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                  >
-                    Next student
-                  </button>
-                )}
+                <RateStudentForm
+                  student={student}
+                  toggleRateForm={toggleRateForm}
+                  hasNextStudent={hasNextStudent}
+                  nextStudent={nextStudent}
+                />
               </div>
             ))}
           </ul>
