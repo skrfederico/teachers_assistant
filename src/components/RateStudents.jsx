@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useStudentsStore } from '../store'
 import { useParams } from 'react-router-dom'
 import { RateStudentForm } from './RateStudent/RateStudentForm'
 // import { RateModal } from './RateModal'
 import { useRateStudents } from './RateStudent/RateStudents.hook'
 
-export default function RateStudents({ students, groupId, registers }) {
+// export default function RateStudents({ students, groupId, registers }) {
+export default function RateStudents() {
+  const { getAllStudents, deleteStudent, students } = useStudentsStore()
   const { id } = useParams()
 
   const [ratings, setRatings] = useState([])

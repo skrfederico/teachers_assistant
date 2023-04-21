@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 // import { useController } from '../Controller'
-import { useGroupsStore } from '../store'
+import { useStudentsStore } from '../store'
 import { useParams } from 'react-router-dom'
 
 export default function CreateStudent() {
-  const { createStudent } = useGroupsStore()
+  const { createStudent } = useStudentsStore()
   const [input, setInput] = useState('')
   const { id } = useParams()
   const [groupId, setGroupId] = useState(id)

@@ -11,6 +11,7 @@ const dataController = {
   async create(req, res, next) {
     try {
       console.log('the created req.body', req.body)
+      console.log('this is req.body', req.body)
       const user = await User.create(req.body)
       //taken is a string
       const token = createJWT(user)
@@ -18,7 +19,7 @@ const dataController = {
       // which we need to account for in the client
       res.locals.data.user = user
       res.locals.data.token = token
-      console.log('trying to create user in users.js')
+      // console.log('trying to create user in users.js')
       next()
     } catch (error) {
       res.status(400).json(error)

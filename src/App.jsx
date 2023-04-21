@@ -27,11 +27,7 @@ function App() {
   const { getAllStudents, students } = useStudentsStore()
   const { getAllRegisters } = useRegistersStore()
   useEffect(function () {
-    Promise.all([
-      getAllGroups(),
-      getAllStudents()
-      // getAllRegisters()
-    ])
+    Promise.all([getAllGroups(), getAllStudents(), getAllRegisters()])
       .then()
       .catch((error) => {
         console.log(error)

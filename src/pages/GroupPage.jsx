@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import { useController } from '../'
-import { useGroupsStore } from '../store'
+import { useGroupsStore, useStudentsStore } from '../store'
 
 import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
@@ -17,22 +16,10 @@ import {
 
 export default function SingleGroup() {
   const { id } = useParams()
-  const {
-    getSingleGroup,
-    deleteGroup,
-    updateGroup,
-    students,
-    groupId,
-    registers
-  } = useGroupsStore()
-  // const {
-  //   getSingleGroup,
-  //   deleteGroup,
-  //   updateGroup,
-  //   students,
-  //   groupId,
-  //   registers
-  // } = useController()
+  const { getSingleGroup, deleteGroup, updateGroup, groupId, registers } =
+    useGroupsStore()
+
+  const { students } = useStudentsStore()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)
@@ -84,7 +71,7 @@ export default function SingleGroup() {
       updatedBody,
       updatedCompleted,
       updatedCategory,
-      updatedInstitution, // fixed typo
+      updatedInstitution,
       updatedDays
     )
     setActiveGroup((prev) => ({
@@ -92,7 +79,7 @@ export default function SingleGroup() {
       body: updatedBody,
       completed: updatedCompleted,
       category: updatedCategory,
-      institution: updatedInstitution, // fixed typo
+      institution: updatedInstitution,
       days: updatedDays
     }))
   }

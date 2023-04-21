@@ -134,6 +134,7 @@ export const useRegistersStore = create(
       try {
         const registers = await registerService.getAllRegisters()
         set({ registers })
+        console.log(registers)
       } catch (error) {
         console.error(error)
       }
@@ -144,6 +145,7 @@ export const useRegistersStore = create(
         const filteredRegisters = useRegistersStore
           .getState()
           .registers.filter((regist) => regist.student === id)
+        console.log('these are filtered', filteredRegisters)
         return filteredRegisters
       } catch (error) {
         console.error(error)
