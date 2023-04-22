@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { useStudentsStore, useRateButtonStore } from '../store'
+import React, { useEffect } from 'react'
+import { useStudentsStore } from '../store'
 import { useParams } from 'react-router-dom'
 import { RateStudentForm } from './RateStudent/RateStudentForm'
-// import { RateModal } from './RateModal'
 import { useRateStudents } from './RateStudent/RateStudents.hook'
 
-// export default function RateStudents({ students, groupId, registers }) {
 export default function RateStudents({ toggleRateForm }) {
-  const { getAllStudents, deleteStudent, students } = useStudentsStore()
+  const { students } = useStudentsStore()
   const { id } = useParams()
 
-  const [ratings, setRatings] = useState([])
-
-  //TODO: enviar al controlador como metodo getStudentsByGroup
   const filteredStudents = students.filter((student) => student.group === id)
 
   const { currentIndex, hasNextStudent, nextStudent, position } =
     useRateStudents(filteredStudents)
 
+  //instead of putting it here, it should be in the onChange (GroupPage)
   useEffect(() => {
     if (!hasNextStudent()) toggleRateForm()
   }, [position])
