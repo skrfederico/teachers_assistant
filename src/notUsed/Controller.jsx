@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import groupService from './services/GroupService'
-import studentService from './services/StudentService'
-import registerService from './services/RegisterService'
+import groupService from '../services/GroupService'
+import studentService from '../services/StudentService'
+import registerService from '../services/RegisterService'
 // import RegisterService from './services/RegisterService'
 
 //2) this is where we create context

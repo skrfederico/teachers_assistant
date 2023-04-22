@@ -1,7 +1,6 @@
 import { Component } from 'react'
 
 import { signUp } from '../utilities/users-service'
-import FooterSmall from './FooterSmall'
 
 export default class SignUpForm extends Component {
   constructor() {
@@ -151,7 +150,6 @@ export default class SignUpForm extends Component {
               </div>
             </div>
           </div>
-          <FooterSmall absolute />
         </section>
       </main>
     )

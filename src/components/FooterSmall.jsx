@@ -1,7 +1,7 @@
 import React from 'react'
 import UserLogOut from './UserLogOut'
 
-export default function FooterSmall(props, user, setUser) {
+export default function FooterSmall({ user, setUser }) {
   return (
     <>
       <footer className="w-full bottom-0 bg-zinc-500">
@@ -9,8 +9,14 @@ export default function FooterSmall(props, user, setUser) {
           <hr className="mb-6 border-b-1 border-gray-700" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4">
-              <UserLogOut user={user} setUser={setUser} />
-
+              <div className="my-2 flex flex-col items-center">
+                <UserLogOut
+                  user={user}
+                  setUser={setUser}
+                  className="text-xl mb-2"
+                />
+                <div className="text-sm text-white">{user.email}</div>
+              </div>
               <div className="text-sm text-red font-semibold py-1"></div>
             </div>
             <div className="w-full md:w-8/12 px-4">

@@ -5,14 +5,12 @@ import LandingPage from './pages/LandingPage'
 import GroupPage from './pages/GroupPage'
 import StudentPage from './pages/StudentPage'
 import TodaysDate from './components/TodaysDate'
-// import RateStudentPage from './pages/RateStudentPage'
 import ReportPage from './pages/ReportPage'
 import RegisterPage from './pages/RegisterPage'
 import FooterSmall from './components/FooterSmall'
 import AuthPage from './pages/AuthPage'
 
 //State provider
-// import { ProvideController } from './Controller'
 import { Route, Routes } from 'react-router-dom'
 import { getUser } from '../src/utilities/users-service'
 import { useGroupsStore } from './store'
@@ -35,7 +33,6 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {/* <ProvideController> */}
       {user ? (
         <>
           <TodaysDate />
@@ -51,7 +48,6 @@ function App() {
       ) : (
         <AuthPage setUser={setUser} />
       )}
-      {/* </ProvideController> */}
     </div>
   )
 }

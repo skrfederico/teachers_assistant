@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import * as usersService from '../utilities/users-service'
 
-import FooterSmall from './FooterSmall'
-
 export default function Login({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
@@ -127,7 +125,6 @@ export default function Login({ setUser }) {
               </div>
             </div>
           </div>
-          <FooterSmall absolute />
         </section>
       </main>
     </>

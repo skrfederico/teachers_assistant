@@ -1,9 +1,10 @@
 import { logOut } from '../utilities/users-service'
 
 export default function UserLogOut({ user, setUser }) {
-  function handleLogOut() {
+  const handleLogOut = async () => {
     logOut()
     setUser(null)
+    window.location.href = '/'
   }
 
   return (
