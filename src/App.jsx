@@ -9,11 +9,11 @@ import TodaysDate from './components/TodaysDate'
 import ReportPage from './pages/ReportPage'
 import RegisterPage from './pages/RegisterPage'
 import FooterSmall from './components/FooterSmall'
+import AuthPage from './pages/AuthPage'
 
 //State provider
 // import { ProvideController } from './Controller'
 import { Route, Routes } from 'react-router-dom'
-import AuthPage from './components/AuthPage'
 import { getUser } from '../src/utilities/users-service'
 import { useGroupsStore } from './store'
 import { useStudentsStore } from './store'
@@ -23,8 +23,8 @@ function App() {
   // REMOVE {} / getUser() TO MAKE USER FALSEY AND ACCESS WITHOUT AUTH
   // const [user, setUser] = useState()
   const [user, setUser] = useState(getUser())
-  const { getAllGroups, groups } = useGroupsStore()
-  const { getAllStudents, students } = useStudentsStore()
+  const { getAllGroups } = useGroupsStore()
+  const { getAllStudents } = useStudentsStore()
   const { getAllRegisters } = useRegistersStore()
   useEffect(function () {
     Promise.all([getAllGroups(), getAllStudents(), getAllRegisters()])
@@ -33,7 +33,6 @@ function App() {
         console.log(error)
       })
   }, [])
-  console.log(groups)
   return (
     <div className="App">
       {/* <ProvideController> */}

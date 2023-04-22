@@ -57,7 +57,6 @@ router.delete('/:id', async (req, res) => {
   console.log(id)
   try {
     const deletedStudent = await Student.findByIdAndDelete(id)
-    // console.log('router delete')
     return res.json(deletedStudent)
   } catch (error) {
     console.log('error')

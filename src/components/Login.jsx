@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import * as usersService from '../utilities/users-service'
 
-import FooterSmall from '../components/FooterSmall'
+import FooterSmall from './FooterSmall'
 
 export default function Login({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -11,13 +11,11 @@ export default function Login({ setUser }) {
   })
   const [error, setError] = useState('')
 
-  // const handleChange = (evt) => {
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value })
     setError('')
   }
 
-  // const handleSubmit = async (evt) => {
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault()
@@ -113,7 +111,6 @@ export default function Login({ setUser }) {
                           </span>
                         </label>
                       </div> */}
-
                       <div className="text-center mt-6">
                         <button
                           type="submit"

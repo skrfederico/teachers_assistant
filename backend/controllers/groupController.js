@@ -35,10 +35,10 @@ router.put('/:id', async (req, res) => {
     const updatedGroup = await Group.findByIdAndUpdate(id, req.body, {
       new: true
     })
-    console.log('Successfully updated bookmark with ID', id)
+    console.log('Successfully updated group with ID', id)
     return res.json(updatedGroup)
   } catch (error) {
-    console.log('Error updating bookmark with ID', id, ':', error)
+    console.log('Error updating group with ID', id, ':', error)
     res.status(500).json({ error })
   }
 })

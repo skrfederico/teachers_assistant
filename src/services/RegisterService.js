@@ -19,7 +19,6 @@ class RegisterService {
   }
 
   async createRegister(registerData) {
-    console.log(registerData)
     try {
       const { data } = await this.instance.post('/', {
         student: registerData.student,
@@ -28,13 +27,9 @@ class RegisterService {
         hwCompletion: registerData.hwCompletion,
         participation: registerData.participation
       })
-      // const response = await this.instance.post('/', registerData)
-      // const response = await axios.post('/api/registers', registerData)
       return data
-      // return response.data
     } catch (error) {
       console.error(error.response.data)
-      // throw new Error('Could not create register')
     }
   }
 }

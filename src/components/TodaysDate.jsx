@@ -12,9 +12,9 @@ export default function TodaysDate() {
 
   return (
     <div>
-      <p>
+      <div>
         Today's Date: <strong>{formattedDate}</strong>
-      </p>
+      </div>
     </div>
   )
 }

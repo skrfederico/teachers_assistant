@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 const checkToken = (req, res) => {
-  console.log('req.user', req.user)
   res.json(req.exp)
 }
 
@@ -11,13 +10,9 @@ const dataController = {
   async create(req, res, next) {
     try {
       // body need => { name, email, password }
-      console.log(-'the created req.body', req.body)
       const user = await User.create(req.body)
-      //taken is a string
 
       const token = createJWT(user)
-      // send back the token as a string
-      // which we need to account for in the client
       res.locals.data.user = user
       res.locals.data.token = token
       console.log('trying to create user in users.js')

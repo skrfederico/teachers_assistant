@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGroupsStore } from '../store'
 
-// import Register from '../models/Register'
 import AllStudents from '../components/AllStudents/AllStudents'
 
 export default function RateStudentPage() {
@@ -34,22 +33,6 @@ export default function RateStudentPage() {
     fetchAndLoadGroup()
   }, [])
 
-  // useEffect(() => {
-  //   const fetchGroup = async () => {
-  //     setLoading(true)
-  //     try {
-  //       const group = await getSingleGroup(id)
-  //       setGroup(group)
-  //       setStudents(group.students)
-  //     } catch (error) {
-  //       console.error(error)
-  //     } finally {
-  //       setLoading(false)
-  //     }
-  //   }
-  //   fetchGroup()
-  // }, [id, getSingleGroup])
-
   const handleAttendanceChange = (e) => {
     setAttendance(e.target.checked)
   }
@@ -71,8 +54,6 @@ export default function RateStudentPage() {
         hwCompletion: homeworkCompletion,
         participation: performance
       }
-      // const register = new Register(registerData)
-      // await register.save()
       setCurrentStudentIndex((prevIndex) => prevIndex + 1)
       setAttendance(false)
       setHomeworkCompletion(false)

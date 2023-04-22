@@ -1,10 +1,7 @@
 import React from 'react'
 import '../App.css'
 
-//State provider
-// import { ProvideController } from './Controller'
 import AllGroups from '../components/AllGroups'
-// import CreateGroup from '../components/CreateGroup'
 import CreateGroup from '../components/CreateGroup'
 
 export default function LandingPage() {
@@ -72,21 +69,3 @@ export default function LandingPage() {
     </>
   )
 }
-
-// OLD SIMPLE CODE
-// import React from 'react'
-// import '../App.css'
-
-// //State provider
-// // import { ProvideController } from './Controller'
-// import AllGroups from '../components/AllGroups'
-// import CreateGroup from '../components/CreateGroup'
-
-// export default function LandingPage() {
-//   return (
-//     <div className="groupCard">
-//       <AllGroups />
-//       <CreateGroup />
-//     </div>
-//   )
-// }

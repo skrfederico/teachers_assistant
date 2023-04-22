@@ -38,8 +38,6 @@ function useHook() {
   // groups
   async function createGroup(group) {
     // groupService.createGroup(group)
-    console.log({ group })
-    console.log(group)
     try {
       // const data = await response.json()
       const freshGroup = await groupService.createGroup(group)

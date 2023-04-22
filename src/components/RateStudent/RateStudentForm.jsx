@@ -1,4 +1,3 @@
-import RegisterService from '../../services/RegisterService'
 import { SelectInput } from './SelectInput'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -22,12 +21,10 @@ export const RateStudentForm = ({
 
   const handleOnChange = (event) => {
     setRateForm({ ...rateForm, [event.target.name]: event.target.value })
-    console.log(rateForm)
   }
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
-    console.log(rateForm)
     registerService
       .createRegister({
         student: rateForm.student,

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import { act } from 'react-dom/test-utils'
 import { useParams } from 'react-router-dom'
-// import { useController } from '../Controller'
 import { useRegistersStore } from '../store'
-
-// import TemplatePage from '../components/TemplatePage'
 
 export default function RegisterPage() {
   const { id } = useParams()
@@ -20,39 +17,21 @@ export default function RegisterPage() {
       const register = await getSingleRegister(id)
       setActiveRegister(register)
     } catch (error) {
-      alert('error en l22')
       console.error(error)
     } finally {
       setLoading(false)
     }
   }
-  // const fetchAndLoadGroup = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const group = await getSingleGroup(activeRegister.group)
-  //     setActiveGroup(group)
-  //     console.log('a', group)
-  //     console.log('b', activeGroup)
-  //     console.log('activeRegister is', activeRegister)
-  //   } catch (error) {
-  //     console.error(error)
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // }
 
   useEffect(() => {
     fetchAndLoadRegister()
   }, [])
 
-  useEffect(() => {
-    console.log(activeRegister)
-  }, [activeRegister])
+  useEffect(() => {}, [activeRegister])
 
   return (
     <div>
       {loading && <p>loading...</p>}
-      {console.log(activeRegister)}
       {!loading && activeRegister && (
         <>
           <main className="profile-page">
@@ -104,17 +83,12 @@ export default function RegisterPage() {
                       <h4 className="text-2xl">
                         {new Date(activeRegister.date).toLocaleDateString()}
                       </h4>
-
-                      {/* <h2 className="text-3xl">Student's name</h2>
-                      <p>Group: group's name</p>
-                      <h4 className="text-2xl">{activeRegister.date}</h4> */}
                     </div>
                     <div className="mt-10 py-10 border-t border-gray-300 text-center">
                       <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-9/12 px-4">
                           <div>
                             <p>
-                              {/* Attendance: {activeRegister.attendance.toString()} */}
                               Attendance:{' '}
                               {activeRegister.attendance ? (
                                 <i className="fas fa-check-square"></i>
@@ -123,8 +97,6 @@ export default function RegisterPage() {
                               )}
                             </p>
                             <p>
-                              {/* Homework Completion:{' '}
-                              {activeRegister.hwCompletion.toString()} */}
                               Homework Completion:{' '}
                               {activeRegister.hwCompletion ? (
                                 <i className="fas fa-check-square"></i>

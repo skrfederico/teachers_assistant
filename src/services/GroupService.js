@@ -25,13 +25,6 @@ class GroupService {
     const { data } = await this.instance.post('/', {
       body: group
     })
-    // return data;
-    //   // body: { body: group },
-    //   body: group,
-    //   method: 'POST'
-    // })
-    // const data = createdNote.json()
-    // const { data } = await this.instance.post('/', { body: group })
     return data
   }
   async deleteGroup(id) {
@@ -54,6 +47,5 @@ class GroupService {
   }
 }
 //This is a SINGLETON
-//just one single service
 const groupService = new GroupService()
 export default groupService
