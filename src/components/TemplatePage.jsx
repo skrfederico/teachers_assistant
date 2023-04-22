@@ -1,5 +1,5 @@
 import React from 'react'
-import { useController } from '../Controller'
+import { useGroupsStore } from '../store'
 
 export default function TemplatePage() {
   return (

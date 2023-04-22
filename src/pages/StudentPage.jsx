@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useController } from '../Controller'
+import { useStudentsStore } from '../store'
+import { useRegistersStore } from '../store'
 import defaultImage from '../assets/img/default.jpeg'
 
 export default function StudentPage() {
@@ -9,14 +10,16 @@ export default function StudentPage() {
   const {
     getSingleStudent,
     deleteStudent,
-    updateStudent,
-    getAllRegisters,
-    registers
-  } = useController()
+    updateStudent
+    // getAllRegisters,
+    // registers
+  } = useStudentsStore()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)
-  const [registersState, setRegistersState] = useState([])
+  // const [registersState, setRegistersState] = useState([])
+  const [filteredRegisters, setFilteredRegisters] = useState([])
+  const registersState = useRegistersStore((state) => state.registers)
   const [activeStudent, setActiveStudent] = useState({
     _id: '',
     body: '',
@@ -34,29 +37,6 @@ export default function StudentPage() {
   const [updatedImgUrl, setUpdatedImgUrl] = useState('')
   const [updatedGroup, setUpdatedGroup] = useState('')
 
-  const fetchAndLoadRegisters = async () => {
-    setLoading(true)
-    try {
-      // const registersFromDb = await getAllRegistersByStudentId(id)
-
-      await getAllRegisters()
-      const filteredRegisters = registers.filter((regist) => {
-        console.log(regist.student)
-        if (regist.student === id) {
-          return regist
-        }
-        return null
-      })
-      setRegistersState(filteredRegisters)
-      // setRegisters(registersFromDb.filter((regist) => regist.student === id))
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setLoading(false)
-    }
-  }
-  console.log('registersState', registersState)
-
   const fetchAndLoadStudent = async () => {
     setLoading(true)
     try {
@@ -71,9 +51,7 @@ export default function StudentPage() {
 
   useEffect(() => {
     fetchAndLoadStudent()
-    fetchAndLoadRegisters()
   }, [])
-  console.log('registers line50', registers)
 
   useEffect(() => {
     if (editing && activeStudent.body) {
@@ -85,6 +63,20 @@ export default function StudentPage() {
       setUpdatedGroup(activeStudent.group)
     }
   }, [editing])
+
+  useEffect(() => {
+    const getRegisters = async () => {
+      try {
+        const filtered = await useRegistersStore
+          .getState()
+          .getAllRegistersByStudentId(id)
+        setFilteredRegisters(filtered)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getRegisters()
+  }, [id])
 
   const updateStudentAndRefresh = async () => {
     await updateStudent(
@@ -149,12 +141,7 @@ export default function StudentPage() {
                   backgroundImage:
                     "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')"
                 }}
-              >
-                {/* <span
-                  id="blackOverlay"
-                  className="w-full h-full absolute opacity-50 bg-black"
-                ></span> */}
-              </div>
+              ></div>
               <div
                 className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
                 style={{ height: '70px' }}
@@ -320,14 +307,30 @@ export default function StudentPage() {
                 </div>
               </div>
             </section>
-
+            {/* PREVIOUS FAULTY RENDERING OF SECTION
             <section>
-              <h3 class="font-bold italic">Registers</h3>
+              <h3 className="font-bold italic">Registers</h3>
               {registersState.length === 0 ? (
                 <p>No registers available</p>
               ) : (
                 <ul>
                   {registersState.map((register) => (
+                    <li key={register._id}>
+                      <Link to={`/registers/${register._id}`}>
+                        {new Date(register.date).toLocaleDateString()}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section> */}
+            <section>
+              <h3 className="font-bold italic">Registers</h3>
+              {filteredRegisters.length === 0 ? (
+                <p>No registers available</p>
+              ) : (
+                <ul>
+                  {filteredRegisters.map((register) => (
                     <li key={register._id}>
                       <Link to={`/registers/${register._id}`}>
                         {new Date(register.date).toLocaleDateString()}

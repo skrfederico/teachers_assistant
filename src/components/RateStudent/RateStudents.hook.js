@@ -1,24 +1,34 @@
 import { useState } from 'react'
 
-export const useRateStudents = (student = []) => {
-  const [currentIndexStudent, setCurrentIndexStudent] = useState(0)
+export const useRateStudents = (students = []) => {
+  const [currentIndexStudent, setCurrentIndexStudent] = useState(
+    students[0]._id
+  )
+  const [position, setPosition] = useState(0)
+
+  const currentIndex = () => {
+    if (!hasNextStudent()) return -1
+    return students[position]._id
+  }
 
   const hasNextStudent = () => {
-    if (student.length === 0) {
+    if (students.length === 0) {
       return false
     }
-    return currentIndexStudent < student.length
+    return position < students.length
   }
 
   const nextStudent = () => {
     if (hasNextStudent()) {
-      setCurrentIndexStudent(currentIndexStudent + 1)
+      setPosition(position + 1)
+      setCurrentIndexStudent(students[position]._id)
     }
   }
 
   return {
-    currentIndexStudent,
+    currentIndex,
     nextStudent,
-    hasNextStudent
+    hasNextStudent,
+    position
   }
 }

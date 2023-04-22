@@ -6,14 +6,14 @@ export async function signUp(userData) {
   // return the JWT
   const token = await usersAPI.signUp(userData)
   // Persist the token to localStorage
-  localStorage.setItem('token', token)
+  window.localStorage.setItem('token', token)
   return getUser()
 }
 
 export async function login(credentials) {
   const token = await usersAPI.login(credentials)
   // Persist the token to window.localStorage
-  localStorage.setItem('token', token)
+  window.localStorage.setItem('token', token)
   return getUser()
 }
 

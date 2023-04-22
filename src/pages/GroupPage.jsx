@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useController } from '../Controller'
+import { useGroupsStore, useStudentsStore, useRateButtonStore } from '../store'
 
 import AllStudents from '../components/AllStudents/AllStudents'
 import CreateStudent from '../components/CreateStudent'
@@ -16,15 +16,10 @@ import {
 
 export default function SingleGroup() {
   const { id } = useParams()
+  const { getSingleGroup, deleteGroup, updateGroup, groupId, registers } =
+    useGroupsStore()
 
-  const {
-    getSingleGroup,
-    deleteGroup,
-    updateGroup,
-    students,
-    groupId,
-    registers
-  } = useController()
+  const { students } = useStudentsStore()
 
   const [loading, setLoading] = useState(false)
   const [editing, setEditing] = useState(false)
@@ -41,7 +36,13 @@ export default function SingleGroup() {
   const [updatedCategory, setUpdatedCategory] = useState('')
   const [updatedInstitution, setUpdatedInstitution] = useState('')
   const [updatedDays, setUpdatedDays] = useState('')
-  const [showRateForm, setShowRateForm] = useState(false)
+
+  const { toggleRateButton, isPressed } = useRateButtonStore()
+
+  const toggleRateForm = () => {
+    toggleRateButton()
+    console.log('is pressed', isPressed)
+  }
 
   const fetchAndLoadGroup = async () => {
     setLoading(true)
@@ -59,15 +60,15 @@ export default function SingleGroup() {
     fetchAndLoadGroup()
   }, [])
 
-  useEffect(() => {
-    if (editing && activeGroup.body) {
-      setUpdatedBody(activeGroup.body)
-      setUpdatedCompleted(activeGroup.completed)
-      setUpdatedCategory(activeGroup.category)
-      setUpdatedInstitution(activeGroup.institution)
-      setUpdatedDays(activeGroup.days)
-    }
-  }, [editing, activeGroup])
+  // useEffect(() => {
+  //   if (editing && activeGroup.body) {
+  //     setUpdatedBody(activeGroup.body)
+  //     setUpdatedCompleted(activeGroup.completed)
+  //     setUpdatedCategory(activeGroup.category)
+  //     setUpdatedInstitution(activeGroup.institution)
+  //     setUpdatedDays(activeGroup.days)
+  //   }
+  // }, [editing, activeGroup])
   // }, [])
 
   const updateGroupAndRefresh = async () => {
@@ -76,7 +77,7 @@ export default function SingleGroup() {
       updatedBody,
       updatedCompleted,
       updatedCategory,
-      updatedInstitution, // fixed typo
+      updatedInstitution,
       updatedDays
     )
     setActiveGroup((prev) => ({
@@ -84,7 +85,7 @@ export default function SingleGroup() {
       body: updatedBody,
       completed: updatedCompleted,
       category: updatedCategory,
-      institution: updatedInstitution, // fixed typo
+      institution: updatedInstitution,
       days: updatedDays
     }))
   }
@@ -333,14 +334,14 @@ export default function SingleGroup() {
                                   <div className="w-full px-4">
                                     <nav className="flex items-center justify-between bg-zinc-500 rounded-lg px-4 py-3">
                                       <button
-                                        className="flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75"
-                                        onClick={() =>
-                                          setShowRateForm((prev) => !prev)
-                                        }
+                                        className={`${
+                                          isPressed
+                                            ? ' bg-zinc-900 '
+                                            : '  bg-zinc-500 '
+                                        }flex items-center text-white font-bold text-sm mr-4 py-2 px-4 border border-white rounded-lg shadow hover:opacity-75`}
+                                        onClick={toggleRateForm}
                                       >
-                                        {showRateForm
-                                          ? 'Close'
-                                          : 'Rate Students'}
+                                        Rate Students
                                       </button>
                                       <div className="flex items-center">
                                         <button
@@ -359,11 +360,12 @@ export default function SingleGroup() {
                                     </nav>
                                   </div>
                                 </div>
-                                {showRateForm && (
+                                {isPressed && (
                                   <RateStudents
                                     students={students}
                                     groupId={groupId}
                                     registers={registers}
+                                    toggleRateForm={toggleRateForm}
                                   />
                                 )}
                                 <div className="studentsGrid">

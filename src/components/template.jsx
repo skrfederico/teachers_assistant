@@ -69,7 +69,7 @@ return (
 //StudentPage
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useController } from '../Controller'
+import { useGroupsStore } from '../store'
 
 export default function StudentPage() {
   const { id } = useParams()

@@ -4,6 +4,7 @@ import '../App.css'
 //State provider
 // import { ProvideController } from './Controller'
 import AllGroups from '../components/AllGroups'
+// import CreateGroup from '../components/CreateGroup'
 import CreateGroup from '../components/CreateGroup'
 
 export default function LandingPage() {
@@ -58,6 +59,7 @@ export default function LandingPage() {
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                        {/* <CreateGroup /> */}
                         <CreateGroup />
                       </p>
                     </div>

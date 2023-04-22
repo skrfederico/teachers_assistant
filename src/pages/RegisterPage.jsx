@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 // import { act } from 'react-dom/test-utils'
 import { useParams } from 'react-router-dom'
-import { useController } from '../Controller'
+// import { useController } from '../Controller'
+import { useRegistersStore } from '../store'
 
 // import TemplatePage from '../components/TemplatePage'
 
 export default function RegisterPage() {
   const { id } = useParams()
 
-  const { getSingleRegister } = useController()
+  const { getSingleRegister } = useRegistersStore()
 
   const [loading, setLoading] = useState(false)
   const [activeRegister, setActiveRegister] = useState()
