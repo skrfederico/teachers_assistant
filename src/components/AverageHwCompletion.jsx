@@ -66,12 +66,9 @@ export default function AverageHwCompletion({ student }) {
   return (
     <div>
       {' '}
-      <p class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
+      <div className="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
         {chooseAnswer(student)}
-      </p>
-      {/* <footer class="block ml-4 text-neutral-600">
-        - Attendance <cite>{student.averageAttendance} %</cite>
-      </footer> */}
+      </div>
     </div>
   )
 }
