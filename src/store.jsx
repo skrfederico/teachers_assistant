@@ -131,6 +131,7 @@ export const useRegistersStore = create(
       try {
         const freshRegister = await registerService.createRegister(registerData)
         set((state) => ({ registers: [...state.registers, freshRegister] }))
+        //  getallStudetns()
       } catch (error) {
         console.error(error)
       }

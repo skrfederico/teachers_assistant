@@ -28,24 +28,24 @@ const partAns3 = (student) => {
 // D:
 const partAns4 = (student) => {
   return [
-    `${student.body}'s performance in class has been good, earning them a grade of 'C'. While there is room for improvement, ${student.body} has demonstrated consistent effort and participation throughout the term. To improve, ${student.body} should focus on completing assignments on time and taking more initiative in group discussions. Overall, ${student.body} is on track for success with continued effort and determination.`,
-    `${student.body} has shown improvement in their class performance, earning them a grade of 'B-'. However, there is still room for further progress. To continue improving, ${student.body} should focus on developing critical thinking skills and actively participating in class discussions. Additionally, submitting assignments with attention to detail and on time can also benefit their overall performance. Overall, with continued effort and dedication, ${student.body} can achieve even greater success.`,
-    `${student.body}'s class performance has been consistently strong, earning them a grade of 'A-'. Their dedication to their studies is evident through their active participation in class discussions and their consistent completion of assignments on time. To continue excelling, ${student.body} should challenge themselves to take on more advanced topics and continue to seek out opportunities for growth. Overall, ${student.body} is on track for continued success in future classes.`
+    `${student.body}'s performance in class has been good, earning them a grade of 'D'. While there is room for improvement, ${student.body} has demonstrated consistent effort and participation throughout the term. To improve, ${student.body} should focus on completing assignments on time and taking more initiative in group discussions. Overall, ${student.body} is on track for success with continued effort and determination.`,
+    `${student.body} has shown improvement in their class performance, earning them a grade of 'D-'. However, there is still room for further progress. To continue improving, ${student.body} should focus on developing critical thinking skills and actively participating in class discussions. Additionally, submitting assignments with attention to detail and on time can also benefit their overall performance. Overall, with continued effort and dedication, ${student.body} can achieve even greater success.`,
+    `${student.body}'s class performance has been consistently strong, earning them a grade of 'D-'. Their dedication to their studies is evident through their active participation in class discussions and their consistent completion of assignments on time. To continue excelling, ${student.body} should challenge themselves to take on more advanced topics and continue to seek out opportunities for growth. Overall, ${student.body} is on track for continued success in future classes.`
   ]
 }
 // E:
 const partAns5 = (student) => {
   return [
-    `${student.body}'s performance in class has been unsatisfactory, resulting in a grade of 'D'. It is important for ${student.body} to take immediate action to improve their participation and engagement in class. To do so, ${student.body} should make an effort to attend all classes, arrive on time, and actively participate in discussions. Additionally, completing assignments on time and seeking help when needed can greatly benefit ${student.body}'s overall performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and ensure future success.``${student.body}'s performance in class has been unacceptable, resulting in a grade of 'D-'. Immediate action is necessary for ${student.body} to improve their performance. This includes attending all classes and arriving on time, actively participating in discussions, and submitting assignments on time and with high quality. Seeking help from the teacher and utilizing additional resources can also benefit ${student.body}'s performance. It is important for ${student.body} to take these steps seriously in order to turn their performance around and avoid negative consequences.`,
-    `${student.body}'s performance in class has been below expectations, resulting in a grade of 'D+'. Immediate action is necessary for ${student.body} to improve their performance. This includes attending all classes and arriving on time, actively participating in discussions, and seeking help from the teacher when needed. Additionally, submitting assignments with high quality and on time is crucial for improving their overall performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and ensure future success.`
+    `${student.body}'s performance in class has been unsatisfactory, resulting in a grade of 'E'. It is important for ${student.body} to take immediate action to improve their participation and engagement in class. To do so, ${student.body} should make an effort to attend all classes, arrive on time, and actively participate in discussions. Additionally, completing assignments on time and seeking help when needed can greatly benefit ${student.body}'s overall performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and ensure future success.``${student.body}'s performance in class has been unacceptable, resulting in a grade of 'D-'. Immediate action is necessary for ${student.body} to improve their performance. This includes attending all classes and arriving on time, actively participating in discussions, and submitting assignments on time and with high quality. Seeking help from the teacher and utilizing additional resources can also benefit ${student.body}'s performance. It is important for ${student.body} to take these steps seriously in order to turn their performance around and avoid negative consequences.`,
+    `${student.body}'s performance in class has been below expectations, resulting in a grade of 'E+'. Immediate action is necessary for ${student.body} to improve their performance. This includes attending all classes and arriving on time, actively participating in discussions, and seeking help from the teacher when needed. Additionally, submitting assignments with high quality and on time is crucial for improving their overall performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and ensure future success.`
   ]
 }
 // F:
 const partAns6 = (student) => {
   return [
-    `${student.body}'s performance in class has been significantly below expectations, earning them a grade of 'E'. To improve, ${student.body} must prioritize their studies and make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and completing assignments on time. Seeking help and guidance from the teacher can also benefit ${student.body}'s performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and achieve success in future classes.`,
-    `${student.body}'s performance in class has been extremely poor, resulting in a grade of 'E+'. To improve, ${student.body} must take immediate action and make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and submitting assignments with high quality and on time. Additionally, seeking extra help and guidance from the teacher is strongly recommended. It is important for ${student.body} to prioritize their studies and take these steps seriously in order to improve their performance and avoid negative consequences.`,
-    `${student.body}'s performance in class has been extremely unsatisfactory, earning them a grade of 'E-'. To improve, ${student.body} must make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and consistently submitting assignments with high quality and on time. Additionally, seeking help and guidance from the teacher is strongly recommended. It is important for ${student.body} to prioritize their studies and take these steps seriously in order to improve their performance and avoid negative consequences.`
+    `${student.body}'s performance in class has been significantly below expectations, earning them a grade of 'F'. To improve, ${student.body} must prioritize their studies and make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and completing assignments on time. Seeking help and guidance from the teacher can also benefit ${student.body}'s performance. It is important for ${student.body} to take these steps seriously in order to improve their grade and achieve success in future classes.`,
+    `${student.body}'s performance in class has been extremely poor, resulting in a grade of 'F+'. To improve, ${student.body} must take immediate action and make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and submitting assignments with high quality and on time. Additionally, seeking extra help and guidance from the teacher is strongly recommended. It is important for ${student.body} to prioritize their studies and take these steps seriously in order to improve their performance and avoid negative consequences.`,
+    `${student.body}'s performance in class has been extremely unsatisfactory, earning them a grade of 'F-'. To improve, ${student.body} must make significant changes to their approach to class. This includes attending all classes, arriving on time, actively participating in discussions, and consistently submitting assignments with high quality and on time. Additionally, seeking help and guidance from the teacher is strongly recommended. It is important for ${student.body} to prioritize their studies and take these steps seriously in order to improve their performance and avoid negative consequences.`
   ]
 }
 export default function AverageParticipation({ student }) {
@@ -85,80 +85,9 @@ const ParticipationComment = ({ student }) => {
   return (
     <>
       {' '}
-      <p class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
+      <div class="text-base font-light leading-relaxed mt-0 mb-0 text-neutral-800">
         {comment}
-      </p>
-      {/* <footer class="block ml-4 text-neutral-600">
-        - Attendance <cite>{student.averageAttendance} %</cite>
-      </footer> */}
+      </div>
     </>
   )
 }
-// export default function AverageParticipation(student) {
-//   const chooseAnswer = (student) => {
-//     const letter = student.averageParticipation
-//     switch (letter) {
-//       case 'A':
-//         const answers = partAns1(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       case 'B':
-//         const answers = partAns2(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       case 'C':
-//         const answers = partAns3(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       case 'D':
-//         const answers = partAns4(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       case 'E':
-//         const answers = partAns5(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       case 'F':
-//         const answers = partAns6(student)
-//         return answers[Math.floor(Math.random() * answers.length)]
-//         break
-//       default:
-//         return 'Input is not a valid letter between A and E.'
-//     }
-//   }
-//   return <p>{chooseAnswer(student)}</p>
-// }
-// export default function AverageParticipation(student) {
-//  const chooseAnswer = (student) => {
-// const letter = student.averageParticipation
-//  switch (letter) {
-//     case 'A':
-//       const answers = partAns1(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     case 'B':
-//       const answers = partAns2(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     case 'C':
-//       const answers = partAns3(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     case 'D':
-//       const answers = partAns4(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     case 'E':
-//       const answers = partAns5(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     case 'F':
-//       const answers = partAns6(student)
-//       return answers[Math.floor(Math.random() * answers.length)]
-//       break
-//     default:
-//       return 'Input is not a valid letter between A and E.'
-//     }
-//   }
-//   return <p>{chooseAnswer(student)}</p>
-// }

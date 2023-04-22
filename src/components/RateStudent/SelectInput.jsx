@@ -1,9 +1,3 @@
-/* options must be => [
-    {value='value1', textOutput='text1'},
-    {value='value2', textOutput='text2'} 
-]
-*/
-
 export const SelectInput = ({ label, options, onChange, name, defaultD }) => {
   return (
     <label>

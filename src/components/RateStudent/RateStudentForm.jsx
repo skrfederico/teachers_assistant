@@ -20,10 +20,6 @@ export const RateStudentForm = ({
     participation: defaultD
   })
 
-  // son equivalentes
-  // rateForm.attendance: 'algo'
-  //rateForm['attendance']: 'algo'
-
   const handleOnChange = (event) => {
     setRateForm({ ...rateForm, [event.target.name]: event.target.value })
     console.log(rateForm)
@@ -31,17 +27,11 @@ export const RateStudentForm = ({
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
-    // validacion de datos (selector no vacio...)
-    // const registerService = new RegisterService()
-
     console.log(rateForm)
     registerService
       .createRegister({
         student: rateForm.student,
         group: id,
-        // FIX THIS:
-        // attendance: rateForm.attendance === 'on' ? 'on' : 'off',
-        // hwCompletion: rateForm.hwCompletion === 'on' ? 'on' : 'off',
         attendance: rateForm.attendance === 'on',
         hwCompletion: rateForm.hwCompletion === 'on',
         participation: rateForm.participation
@@ -55,27 +45,6 @@ export const RateStudentForm = ({
       })
   }
 
-  //ALTERNATIVE HANDLEONSUBMIT
-  // const handleOnSubmit = async (event) => {
-  //   event.preventDefault()
-  //   try {
-  //     // Call createRegister method from RegisterService with rateForm data
-  //     await registerService.createRegister(rateForm)
-  //     // Reset the form after successfully submitting data
-  //     setRateForm({
-  //       student: student._id,
-  //       group: id,
-  //       attendance: '',
-  //       hwCompletion: '',
-  //       participation: ''
-  //     })
-  //     // Call onClick function passed from parent component to update the list of students after adding a new record
-  //     onClick()
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-  //
   return (
     <div>
       <h2 className="text-xl p-4">

@@ -9,7 +9,7 @@ export default function FooterSmall(props, user, setUser) {
           <hr className="mb-6 border-b-1 border-gray-700" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4">
-              <UserLogOut setUser={setUser} />
+              <UserLogOut user={user} setUser={setUser} />
 
               <div className="text-sm text-red font-semibold py-1"></div>
             </div>
@@ -18,7 +18,6 @@ export default function FooterSmall(props, user, setUser) {
                 <li>
                   <button
                     onClick={() => window.history.back()}
-                    // style={{ display: 'flex-end' }}
                     className="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   >
                     Back
