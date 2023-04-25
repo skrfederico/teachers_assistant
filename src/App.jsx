@@ -26,6 +26,13 @@ function App() {
   const { getAllRegisters } = useRegistersStore()
   useEffect(function () {
     Promise.all([getAllGroups(), getAllStudents(), getAllRegisters()])
+
+      // Promise.all([
+      //   getAllGroups({ createdBy: user.id }),
+      //   getAllStudents({ createdBy: user.id }),
+      //   getAllRegisters({ createdBy: user.id })
+      // ])
+
       .then()
       .catch((error) => {
         console.log(error)

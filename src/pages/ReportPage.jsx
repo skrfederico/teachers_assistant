@@ -25,7 +25,7 @@ export default function ReportPage() {
   const handleClick = async () => {
     sendEmail(
       // 'fedeinnyc@gmail',
-      '${student.email}',
+      `${student.email}`,
       `${student.body} 's report`,
       ReactDomServer.renderToString(<Report student={student} />)
     ).then(() => {
