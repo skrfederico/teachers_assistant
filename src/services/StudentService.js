@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class StudentService {
   // base_URL = 'http://localhost:3001/api'
-  base_URL = 'http://localhost:3001/api/students'
+  base_URL = 'https://seal-app-g96hp.ondigitalocean.app/'
 
   constructor() {
     this.instance = axios.create({ baseURL: this.base_URL })

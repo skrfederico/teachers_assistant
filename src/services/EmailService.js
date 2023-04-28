@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const URL = 'http://localhost:3001/api/email'
+const URL = 'https://seal-app-g96hp.ondigitalocean.app/'
+
 const EmailService = axios.create({
   baseURL: URL
 })

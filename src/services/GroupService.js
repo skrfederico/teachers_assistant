@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class GroupService {
-  base_URL = 'http://localhost:3001/api/groups'
+  base_URL = 'https://seal-app-g96hp.ondigitalocean.app/'
   // base_URL = 'http://localhost:3001/api'
 
   constructor() {

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class RegisterService {
-  base_URL = 'http://localhost:3001/api/registers'
+  base_URL = 'https://seal-app-g96hp.ondigitalocean.app/'
 
   constructor() {
     this.instance = axios.create({ baseURL: this.base_URL })
