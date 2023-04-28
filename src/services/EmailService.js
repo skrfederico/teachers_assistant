@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = 'https://seal-app-g96hp.ondigitalocean.app/'
+const URL = `${process.env.BASE_URL}/api/email`
 
 const EmailService = axios.create({
   baseURL: URL

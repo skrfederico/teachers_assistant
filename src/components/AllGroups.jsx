@@ -4,6 +4,7 @@ import { useGroupsStore } from '../store'
 export default function AllGroups() {
   const { deleteGroup, groups } = useGroupsStore()
 
+  console.log(groups)
   return (
     <div className="allgroups">
       {groups.length < 1 && <p>You have no groups!</p>}
