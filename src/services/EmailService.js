@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = `${process.env.BASE_URL}/api/email`
+const URL = `/api/email`
 
 const EmailService = axios.create({
   baseURL: URL

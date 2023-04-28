@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class RegisterService {
-  base_URL = `${process.env.BASE_URL}/api/registers`
+  base_URL = `/api/registers`
 
   constructor() {
     this.instance = axios.create({ baseURL: this.base_URL })

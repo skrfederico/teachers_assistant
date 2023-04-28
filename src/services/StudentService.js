@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class StudentService {
   // base_URL = 'http://localhost:3001/api'
-  base_URL = `${process.env.BASE_URL}/api/students`
+  base_URL = `/api/students`
 
   constructor() {
     this.instance = axios.create({ baseURL: this.base_URL })
